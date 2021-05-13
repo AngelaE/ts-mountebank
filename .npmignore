@@ -1,0 +1,11 @@
+.idea/*
+.gitignore/*
+.git/*
+src/*
+dist/*
+gulpfile.js
+tsconfig.js
+tslint.json
+typings.json
+./vscode/*
+*.test.js

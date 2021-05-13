@@ -1,0 +1,8 @@
+.idea/*
+node_modules/*
+build/*
+typings/*
+.vscode/*
+npm-debug.log
+dist/
+mb.pid
