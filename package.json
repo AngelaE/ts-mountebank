@@ -4,7 +4,7 @@
   "description": "Mountebank client for TS / node ",
   "scripts": {
     "release": "npm publish --access=public",
-    "test": "mocha ./dist/**/*.js",
+    "test": "mocha ./lib/**/*.js",
     "build": "tsc"
   },
   "repository": {

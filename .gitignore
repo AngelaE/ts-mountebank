@@ -5,4 +5,7 @@ typings/*
 .vscode/*
 npm-debug.log
 dist/
+lib/
+mb.log
 mb.pid
+*.tgz
