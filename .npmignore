@@ -8,6 +8,7 @@ tslint.json
 typings.json
 ./vscode/*
 *.test.js
+*.test.d.js
 mb.*
 *.tgz
 tsconfig.json
