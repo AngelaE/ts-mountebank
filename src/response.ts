@@ -19,7 +19,7 @@ export class Response {
         return this;
     }
 
-    withBOdy(body: any): Response {
+    withBody(body: any): Response {
         this.body = body;
         return this;
     }
