@@ -5,11 +5,8 @@ import {Stub, DefaultStub} from "./stub";
 export class Imposter {
     public protocol: string = "http";
     public port: number = 0;
-    public stubs: Stub[];
-
-    constructor() {
-        this.stubs = [];
-    }
+    public stubs: Stub[] = [];
+    public name?: string = undefined;
 
     withStub(s: Stub): Imposter {
         this.stubs.push(s);
@@ -18,6 +15,11 @@ export class Imposter {
 
     withPort(p: number): Imposter {
         this.port = p;
+        return this;
+    }
+
+    withName(name: string): Imposter {
+        this.name = name;
         return this;
     }
 }
