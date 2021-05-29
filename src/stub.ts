@@ -1,10 +1,11 @@
 import {Response, DefaultResponse} from "./response";
+import {Proxy} from './proxy';
 import {Predicate, DefaultPredicate} from "./predicate";
 import {HttpMethod} from "./http-method";
 
 export class Stub {
     predicates: Predicate[];
-    responses: Response[];
+    responses: (Proxy | Response)[];
 
     constructor() {
         this.predicates = [];
@@ -13,6 +14,11 @@ export class Stub {
 
     withResponse(response: Response): Stub {
         this.responses.push(response);
+        return this;
+    }
+
+    withProxy(proxy: Proxy): Stub {
+        this.responses.push(proxy);
         return this;
     }
 

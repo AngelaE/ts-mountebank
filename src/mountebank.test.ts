@@ -60,6 +60,4 @@ describe("Mountebank", () => {
         }
         assert.fail('the request should have failed')
     });
-
-
 });
