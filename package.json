@@ -1,6 +1,6 @@
 {
   "name": "@anev/ts-mountebank",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Mountebank client for TS / node ",
   "scripts": {
     "release": "npm publish --access=public",

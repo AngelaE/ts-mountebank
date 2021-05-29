@@ -38,3 +38,12 @@ This is useful to
 * 'debug' traffic during tests or
 * record traffic between APIs to use as template for building imposters.
  
+```
+// forward all requestsfrom port 5000 => 5001 and generate response stubs
+let proxyImposter = new Imposter()
+    .withPort(5000)
+    .withStub(new Stub()
+        .withProxy(new DebugProxy(`http://localhost:5001}`))); 
+
+await mb.createImposter(proxyImposter);
+ ```
