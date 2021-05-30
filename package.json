@@ -3,8 +3,8 @@
   "version": "1.2.0",
   "description": "Mountebank client for TS / node ",
   "scripts": {
-    "release": "npm run build | npm publish --access=public",
-    "pack": "npm run build | npm pack",
+    "release": "npm run build && npm run test && npm publish --access=public",
+    "pack": "npm run build && npm run test && npm pack",
     "test": "mocha ./lib/**/*.js",
     "build": "tsc"
   },
