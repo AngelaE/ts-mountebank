@@ -11,6 +11,7 @@ export class Proxy {
     to: string;
     mode?: ProxyMode = undefined;
     predicateGenerators?: PredicateGenerator[] = undefined;
+    addWaitBehavior: boolean|undefined = undefined;
 
     constructor(to: string) {
         this.to = to;
@@ -27,12 +28,21 @@ export class Proxy {
         return this;
     }
 
+    withAddWaitBehavior(addWaitBehavior: boolean) : Proxy {
+        this.addWaitBehavior = addWaitBehavior;
+        return this;
+    }
+
     toJSON(): any {
         var proxy: any = {};
 
         proxy.to = this.to;
         if (this.mode) {
             proxy.mode = this.mode;
+        }
+
+        if(this.addWaitBehavior) {
+            proxy.addWaitBehavior = this.addWaitBehavior;
         }
 
         if (this.predicateGenerators) {

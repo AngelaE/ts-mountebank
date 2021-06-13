@@ -1,12 +1,12 @@
 import { assert, expect } from "chai"
 import request from "superagent";
-import { HttpMethod } from "./http-method";
-import { Imposter } from "./imposter";
+import { HttpMethod } from "../http-method";
+import { Imposter } from "../imposter";
 import { Matches } from "./matches";
-import { Mountebank } from "./mountebank";
+import { Mountebank } from "../mountebank";
 import { PredicateGenerator } from "./predicate-generator";
 import { DebugProxy, Proxy, ProxyMode } from "./proxy"
-import { DefaultStub, Stub } from "./stub";
+import { DefaultStub, Stub } from "../stub";
 
 const port = 12345;
 const testPath = '/testpath';
@@ -15,8 +15,10 @@ describe("Proxy", () => {
     describe("can be initialized correctly", () => {
         const to = "http://localhost:5123";
         const mode = ProxyMode.ProxyOnce;
+        const addWaitBehavior = true;
         let proxy = new Proxy(to)
-            .withMode(mode);
+            .withMode(mode)
+            .withAddWaitBehavior(true);
 
         it("should have a target address (to)", () => {
             assert.equal(to, proxy.to);
@@ -24,6 +26,10 @@ describe("Proxy", () => {
 
         it("should assign #mode", () => {
             assert.equal(mode, proxy.mode);
+        })
+
+        it("should assign #addWaitBehavior", () => {
+            assert.equal(addWaitBehavior, proxy.addWaitBehavior);
         })
     })
 
@@ -50,7 +56,9 @@ describe("Proxy", () => {
 
             // act
             let proxyImposter = new Imposter().withPort(proxyPort)
-                .withStub(new Stub().withProxy(new DebugProxy(`http://localhost:${port}`).withMode(test.mode)));
+                .withStub(new Stub().withProxy(new DebugProxy(`http://localhost:${port}`)
+                    .withMode(test.mode)
+                    .withAddWaitBehavior(true)));
 
             try {
                 await mb.createImposter(responseImposter);
