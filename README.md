@@ -24,7 +24,7 @@ mb
 
 I recommend reading the [Mountebank documentation](http://www.mbtest.org/docs/api/overview) for a deeper understanding of their API.
 
-A blog with samples on how to use this package: https://angela-evans.com/easy-api-tests-with-mountebank/
+For more samples on how to use this package check this blog: https://angela-evans.com/easy-api-tests-with-mountebank/
 
 ### Create Imposter
 ```typescript
