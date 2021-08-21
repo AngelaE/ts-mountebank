@@ -19,8 +19,8 @@ export enum Operator {
 
 export class FlexiPredicate implements Predicate {
     operator: Operator = Operator.equals;
-    method: HttpMethod = HttpMethod.GET;
-    path: string = '/';
+    method: HttpMethod | undefined = undefined;
+    path: string | undefined = undefined;
     private _body? : string = undefined;
 
     headers: Map<string, string> = new Map<string, string>();
