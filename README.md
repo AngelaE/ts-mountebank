@@ -1,4 +1,4 @@
-#ts-mountebank 
+# ts-mountebank 
 
 A simple node package that lets you manage your [Mountebank test server](http://mbtest.org).
 Based on https://www.npmjs.com/package/@toincrease/node-mountebank, but 
