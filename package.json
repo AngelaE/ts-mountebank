@@ -6,6 +6,7 @@
     "release": "npm run build && npm run test && npm publish --access=public",
     "pack": "npm run build && npm run test && npm pack",
     "test": "mocha --recursive ./lib",
+    "test-ci": "mocha --recursive --forbid-only ./lib",
     "build": "tsc"
   },
   "repository": {
