@@ -1,7 +1,7 @@
 import {assert} from "chai"
 import {FlexiPredicate, Operator} from "./predicate"
 
-describe.only("Predicate", () => {
+describe("Predicate", () => {
     describe("FlexiPredicate", () => {
 
         const tests = [
