@@ -1,149 +1,145 @@
-import {HttpMethod} from "./http-method";
+import { HttpMethod } from './http-method';
 
-export interface Predicate {
-
-}
+export interface Predicate {}
 
 export enum Operator {
-    equals = 'equals',
-    startsWith = 'startsWith',
-    endsWith = 'endsWith',
-    deepEquals = 'deepEquals',
-    contains = 'contains',
-    matches = 'matches',
-    exists = 'exists',
-    not = 'not',
-    and = 'and',
-    or = 'or'
+  equals = 'equals',
+  startsWith = 'startsWith',
+  endsWith = 'endsWith',
+  deepEquals = 'deepEquals',
+  contains = 'contains',
+  matches = 'matches',
+  exists = 'exists',
+  not = 'not',
+  and = 'and',
+  or = 'or',
 }
 
 export class FlexiPredicate implements Predicate {
-    operator: Operator = Operator.equals;
-    method: HttpMethod | undefined = undefined;
-    path: string | undefined = undefined;
-    private _body? : string = undefined;
+  operator: Operator = Operator.equals;
+  method: HttpMethod | undefined = undefined;
+  path: string | undefined = undefined;
+  private _body?: string = undefined;
 
-    headers: Map<string, string> = new Map<string, string>();
+  headers: Map<string, string> = new Map<string, string>();
 
-    withOperator(operator: Operator) : FlexiPredicate {
-        this.operator = operator;
-        return this;
-    }
+  withOperator(operator: Operator): FlexiPredicate {
+    this.operator = operator;
+    return this;
+  }
 
-    withHeader(header: string, value: string): FlexiPredicate {
-        this.headers.set(header, value);
-        return this;
-    }
-    withPath(path: string): FlexiPredicate {
-        this.path = path;
-        return this;
-    }
-    withMethod(method: HttpMethod): FlexiPredicate {
-        this.method = method;
-        return this;
-    }
-    withBearerToken(token: string): FlexiPredicate {
-        this.withHeader("authorization", "bearer " + token);
-        return this;
-    }
+  withHeader(header: string, value: string): FlexiPredicate {
+    this.headers.set(header, value);
+    return this;
+  }
+  withPath(path: string): FlexiPredicate {
+    this.path = path;
+    return this;
+  }
+  withMethod(method: HttpMethod): FlexiPredicate {
+    this.method = method;
+    return this;
+  }
+  withBearerToken(token: string): FlexiPredicate {
+    this.withHeader('authorization', 'bearer ' + token);
+    return this;
+  }
 
-    withBody(body : any) : FlexiPredicate {
-        this._body = body;
-        return this;
-    }
-    toJSON(): any {
-        var res: any = {};
+  withBody(body: any): FlexiPredicate {
+    this._body = body;
+    return this;
+  }
+  toJSON(): any {
+    var res: any = {};
 
-        if (this.headers !== undefined) {
-            var headers: any;
-            this.headers.forEach((value: string, key: string) => {
-                if (headers === undefined) {
-                    headers = {};
-                }
-                headers[key] = value;
-            });
-            res.headers = headers;
+    if (this.headers !== undefined) {
+      var headers: any;
+      this.headers.forEach((value: string, key: string) => {
+        if (headers === undefined) {
+          headers = {};
         }
-
-        if (this.method) {
-            res.method = HttpMethod[this.method];
-        }
-
-        if (this.path) {
-            res.path = this.path;
-        }
-        if (this._body) {
-            res.body = this._body;
-        }
-        return {
-            [this.operator]: res
-        };   
+        headers[key] = value;
+      });
+      res.headers = headers;
     }
+
+    if (this.method) {
+      res.method = HttpMethod[this.method];
+    }
+
+    if (this.path) {
+      res.path = this.path;
+    }
+    if (this._body) {
+      res.body = this._body;
+    }
+    return {
+      [this.operator]: res,
+    };
+  }
 }
 
 export class EqualPredicate implements Predicate {
-    method: HttpMethod = HttpMethod.GET;
-    path: string = '/';
-    private _body? : string = undefined;
-    
-    headers: Map<string, string> = new Map<string, string>();
+  method: HttpMethod = HttpMethod.GET;
+  path: string = '/';
+  private _body?: string = undefined;
 
-    withHeader(header: string, value: string): EqualPredicate {
-        this.headers.set(header, value);
-        return this;
-    }
-    withPath(path: string): EqualPredicate {
-        this.path = path;
-        return this;
-    }
-    withMethod(method: HttpMethod): EqualPredicate {
-        this.method = method;
-        return this;
-    }
-    withBearerToken(token: string): EqualPredicate {
-        this.withHeader("authorization", "bearer " + token);
-        return this;
-    }
+  headers: Map<string, string> = new Map<string, string>();
 
-    withBody(body : any) : EqualPredicate {
-        this._body = body;
-        return this;
-    }
-    toJSON(): any {
-        var res: any = {};
+  withHeader(header: string, value: string): EqualPredicate {
+    this.headers.set(header, value);
+    return this;
+  }
+  withPath(path: string): EqualPredicate {
+    this.path = path;
+    return this;
+  }
+  withMethod(method: HttpMethod): EqualPredicate {
+    this.method = method;
+    return this;
+  }
+  withBearerToken(token: string): EqualPredicate {
+    this.withHeader('authorization', 'bearer ' + token);
+    return this;
+  }
 
-        if (this.headers !== undefined) {
-            var headers: any;
-            this.headers.forEach((value: string, key: string) => {
-                if (headers === undefined) {
-                    headers = {};
-                }
-                headers[key] = value;
-            });
-            res.headers = headers;
+  withBody(body: any): EqualPredicate {
+    this._body = body;
+    return this;
+  }
+  toJSON(): any {
+    var res: any = {};
+
+    if (this.headers !== undefined) {
+      var headers: any;
+      this.headers.forEach((value: string, key: string) => {
+        if (headers === undefined) {
+          headers = {};
         }
-
-        if (this.method) {
-            res.method = HttpMethod[this.method];
-        }
-
-        if (this.path) {
-            res.path = this.path;
-        }
-        if (this._body) {
-            res.body = this._body;
-        }
-        return {
-            equals: res
-        };
+        headers[key] = value;
+      });
+      res.headers = headers;
     }
 
+    if (this.method) {
+      res.method = HttpMethod[this.method];
+    }
 
+    if (this.path) {
+      res.path = this.path;
+    }
+    if (this._body) {
+      res.body = this._body;
+    }
+    return {
+      equals: res,
+    };
+  }
 }
 
 export class DefaultPredicate extends EqualPredicate {
-    constructor(path: string, method: HttpMethod) {
-        super();
-        return this.withPath(path).withMethod(method);
-    }
+  constructor(path: string, method: HttpMethod) {
+    super();
+    return this.withPath(path).withMethod(method);
+  }
 }

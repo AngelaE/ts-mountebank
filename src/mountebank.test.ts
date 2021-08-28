@@ -1,63 +1,58 @@
-import {assert, expect} from "chai"
+import { assert, expect } from 'chai';
 import request = require('superagent');
 
-import { HttpMethod } from "./http-method";
-import { Imposter } from "./imposter";
-import {Mountebank} from "./mountebank"
-import { DefaultStub } from "./stub";
+import { HttpMethod } from './http-method';
+import { Imposter } from './imposter';
+import { Mountebank } from './mountebank';
+import { DefaultStub } from './stub';
 
 const port = 12345;
 const testPath = '/testpath';
-async function getImposterResponseCode() : Promise<number> {
-    return (await request.get(`http://localhost:${port}${testPath}`)).statusCode;
+async function getImposterResponseCode(): Promise<number> {
+  return (await request.get(`http://localhost:${port}${testPath}`)).statusCode;
 }
 
+describe('Mountebank', () => {
+  // only runs on local machine for now
+  const mb = new Mountebank();
 
-describe("Mountebank", () => {
+  it('is running', async () => {
+    // act
+    const isAlive = await mb.checkIsAlive(true);
 
-    // only runs on local machine for now
-    const mb = new Mountebank();
+    // assert
+    expect(isAlive).to.be.true;
+  });
 
-    
-    it('is running', async () => {
-        // act
-        const isAlive = await mb.checkIsAlive(true);
+  it('can create an imposter', async () => {
+    let imposter = new Imposter()
+      .withPort(port)
+      .withStub(new DefaultStub(testPath, HttpMethod.GET, 'testbody', 222));
 
-        // assert
-        expect(isAlive).to.be.true;
-    });
+    // act
+    try {
+      await mb.createImposter(imposter);
+    } catch (error) {
+      console.log(error);
+      assert.fail();
+    }
 
-    it('can create an imposter', async () => {
-        let imposter = new Imposter().withPort(port).withStub(
-                new DefaultStub(testPath, HttpMethod.GET, 'testbody', 222));
-        
-        // act
-        try {
-            await mb.createImposter(imposter);
-        }
-        catch(error) {
-            console.log(error);
-            assert.fail();
-        }
+    // assert
+    const responseCode = await getImposterResponseCode();
+    expect(responseCode).to.equal(222);
+  });
 
-        // assert
-        const responseCode = await getImposterResponseCode();
-        expect(responseCode).to.equal(222);
-    })
+  it('can delete an imposter', async () => {
+    // act
+    await mb.deleteImposter(port);
 
-    it('can delete an imposter', async() => {
-
-        // act
-        await mb.deleteImposter(port);
-
-        // assert
-        try {
-            const responseCode = await getImposterResponseCode();
-        }
-        catch(error) {
-            expect(error).to.match(/(?:ECONNREFUSED)/);
-            return;
-        }
-        assert.fail('the request should have failed')
-    });
+    // assert
+    try {
+      const responseCode = await getImposterResponseCode();
+    } catch (error) {
+      expect(error).to.match(/(?:ECONNREFUSED)/);
+      return;
+    }
+    assert.fail('the request should have failed');
+  });
 });
