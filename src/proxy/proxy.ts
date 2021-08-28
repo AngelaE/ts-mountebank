@@ -34,7 +34,7 @@ export class Proxy {
   }
 
   toJSON(): any {
-    var proxy: any = {};
+    const proxy: any = {};
 
     proxy.to = this.to;
     if (this.mode) {

@@ -3,8 +3,8 @@ import { HttpMethod } from './http-method';
 import { Stub, DefaultStub } from './stub';
 
 export class Imposter {
-  public protocol: string = 'http';
-  public port: number = 0;
+  public protocol = 'http';
+  public port = 0;
   public stubs: Stub[] = [];
   public name?: string = undefined;
 

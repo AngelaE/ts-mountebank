@@ -25,7 +25,7 @@ describe('Mountebank', () => {
   });
 
   it('can create an imposter', async () => {
-    let imposter = new Imposter()
+    const imposter = new Imposter()
       .withPort(port)
       .withStub(new DefaultStub(testPath, HttpMethod.GET, 'testbody', 222));
 
@@ -48,7 +48,7 @@ describe('Mountebank', () => {
 
     // assert
     try {
-      const responseCode = await getImposterResponseCode();
+      await getImposterResponseCode();
     } catch (error) {
       expect(error).to.match(/(?:ECONNREFUSED)/);
       return;

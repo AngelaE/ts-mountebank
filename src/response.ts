@@ -1,5 +1,5 @@
 export class Response {
-  statusCode: number = 200;
+  statusCode = 200;
   body?: string = undefined;
   headers: Map<string, string>;
   constructor() {
@@ -25,10 +25,10 @@ export class Response {
   }
 
   toJSON(): any {
-    var res: any = {};
+    const res: any = {};
 
     if (this.headers !== undefined) {
-      var headers: any;
+      let headers: any;
       this.headers.forEach((value: string, key: string) => {
         if (headers === undefined) {
           headers = {};

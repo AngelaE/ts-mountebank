@@ -10,7 +10,7 @@ export class Mountebank {
 
   public async checkIsAlive(logIfNotAlive = false): Promise<boolean> {
     const url = `${this.adminUrl}/`;
-    let result = await request.get(url);
+    const result = await request.get(url);
     if (result.statusCode == 200) return true;
 
     if (logIfNotAlive) {
@@ -24,9 +24,9 @@ export class Mountebank {
     try {
       // just try to delete in case an imposter is there
       await this.deleteImposter(imposter.port);
-    } catch (error) {}
+    } catch (error) {} // eslint-disable-line
 
-    let response = await request
+    const response = await request
       .post(`${this.adminUrl}/imposters`)
       .send(JSON.stringify(imposter));
 

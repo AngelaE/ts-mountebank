@@ -12,7 +12,7 @@ describe('Predicate', () => {
     tests.forEach((test) => {
       describe('#withStartsWith', () => {
         const path = '/here/is/my/path';
-        let pred = new FlexiPredicate()
+        const pred = new FlexiPredicate()
           .withOperator(test.operator)
           .withPath(path)
           .toJSON();

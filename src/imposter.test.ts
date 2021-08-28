@@ -1,9 +1,9 @@
 import { DefaultImposter } from './imposter';
 import { HttpMethod } from './http-method';
-import { assert, expect } from 'chai';
+import { expect } from 'chai';
 
 describe('DefaultImposter', () => {
-  let imp = new DefaultImposter(
+  const imp = new DefaultImposter(
     '/path',
     HttpMethod.POST,
     { xxx: 'test123' },

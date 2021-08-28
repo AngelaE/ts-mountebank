@@ -1,12 +1,11 @@
-import { assert, expect } from 'chai';
+import { expect } from 'chai';
 import request = require('superagent');
 
-import { HttpMethod } from './http-method';
 import { Imposter } from './imposter';
 import { Mountebank } from './mountebank';
 import { Stub } from './stub';
 import { FlexiPredicate, Operator } from './predicate';
-import { DefaultResponse, Response } from './response';
+import { DefaultResponse } from './response';
 
 const port = 12345;
 async function getImposterResponseCode(path: string): Promise<number> {
@@ -35,7 +34,7 @@ describe('The flexi predicate', () => {
   tests.forEach(async (test) => {
     describe(`${test.operator} Operator with path '${test.predicatePath}'`, () => {
       before(async () => {
-        let imposter = new Imposter()
+        const imposter = new Imposter()
           .withPort(port)
           .withStub(
             new Stub()

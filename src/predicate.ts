@@ -1,6 +1,6 @@
 import { HttpMethod } from './http-method';
 
-export interface Predicate {}
+export interface Predicate {} // eslint-disable-line
 
 export enum Operator {
   equals = 'equals',
@@ -50,10 +50,10 @@ export class FlexiPredicate implements Predicate {
     return this;
   }
   toJSON(): any {
-    var res: any = {};
+    const res: any = {};
 
     if (this.headers !== undefined) {
-      var headers: any;
+      let headers: any;
       this.headers.forEach((value: string, key: string) => {
         if (headers === undefined) {
           headers = {};
@@ -81,7 +81,7 @@ export class FlexiPredicate implements Predicate {
 
 export class EqualPredicate implements Predicate {
   method: HttpMethod = HttpMethod.GET;
-  path: string = '/';
+  path = '/';
   private _body?: string = undefined;
 
   headers: Map<string, string> = new Map<string, string>();
@@ -108,10 +108,10 @@ export class EqualPredicate implements Predicate {
     return this;
   }
   toJSON(): any {
-    var res: any = {};
+    const res: any = {};
 
     if (this.headers !== undefined) {
-      var headers: any;
+      let headers: any;
       this.headers.forEach((value: string, key: string) => {
         if (headers === undefined) {
           headers = {};
