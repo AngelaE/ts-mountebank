@@ -1,41 +1,22 @@
 {
-  "name": "@anev/ts-mountebank",
-  "version": "1.3.0",
-  "description": "Mountebank client for TS / node ",
+  "name": "mb-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "release": "npm run build && npm run test && npm publish --access=public",
-    "pack": "npm run build && npm run test && npm pack",
-    "test": "mocha --recursive ./lib",
-    "test-ci": "mocha --recursive --forbid-only ./lib",
-    "build": "tsc",
-    "pretty": "prettier -w ./**/*",
-    "lint": "eslint . --ext .ts",
-    "lint-fix": "eslint . --ext .ts --fix"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/AngelaE/ts-mountebank"
+    "url": "git+https://github.com/AngelaE/ts-mountebank.git"
   },
-  "author": "Angela Evans",
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "superagent": "^6.1.0",
-    "typescript": "^4.2.4"
+  "bugs": {
+    "url": "https://github.com/AngelaE/ts-mountebank/issues"
   },
+  "homepage": "https://github.com/AngelaE/ts-mountebank#readme",
   "devDependencies": {
-    "@types/chai": "^4.2.15",
-    "@types/mocha": "^8.2.1",
-    "@types/superagent": "^4.1.11",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "@typescript-eslint/parser": "^4.29.3",
-    "chai": "^4.3.4",
-    "eslint": "^7.32.0",
-    "mocha": "^8.4.0",
-    "prettier": "^2.3.2",
-    "stream": "0.0.2",
-    "tslint": "^6.1.3",
-    "typescript-formatter": "^7.2.2"
-  },
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts"
+    "@typescript-eslint/eslint-plugin": "^4.29.3"
+  }
 }

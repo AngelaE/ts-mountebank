@@ -8,12 +8,18 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+defaults:
+  run:
+    working-directory: project
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        shell: bash
+        working-directory: project
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
@@ -33,3 +39,4 @@ jobs:
     - run: npm run build --if-present
     - run: npm run lint
     - run: npm run test-ci
+	- run: npm pack

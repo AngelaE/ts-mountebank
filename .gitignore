@@ -9,3 +9,4 @@ lib/
 mb.log
 mb.pid
 *.tgz
+project/node_modules/
