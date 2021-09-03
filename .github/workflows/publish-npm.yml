@@ -1,0 +1,26 @@
+name: npm-publish
+on:
+  release:
+    types: [published]
+jobs:
+  npm-publish:
+    name: npm-publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: copy file
+      uses: canastro/copy-file-action@master
+      with:
+        source: "README.md"
+        target: "project/README.md"      
+    - name: Publish if version has been updated
+      uses: pascalgn/npm-publish-action@1.3.8
+      with: # All of theses inputs are optional
+        create_tag: "false"
+        workspace: "project"
+        publish_command: "npm run release"
+        publish_args: "--non-interactive --dry-run"
+      env: # More info about the environment variables in the README
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
