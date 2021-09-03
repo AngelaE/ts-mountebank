@@ -1,10 +1,12 @@
 import { assert, expect } from 'chai';
 import request = require('superagent');
 
-import { HttpMethod } from './http-method';
-import { Imposter } from './imposter';
-import { Mountebank } from './mountebank';
-import { DefaultStub } from './stub';
+import {
+  HttpMethod,
+  Imposter,
+  Mountebank,
+  DefaultStub,
+} from '@anev/ts-mountebank';
 
 const port = 12345;
 const testPath = '/testpath';

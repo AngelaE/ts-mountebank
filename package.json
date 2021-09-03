@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint-project": "cd project && npm run lint",
+    "ci-project": "cd project && npm ci && npm run build",
+    "pack": "cd project && npm pack",
+    "unit-test": "cd project && npm run test-ci",
+    "ci-integration-tests": "cd integration-tests && npm ci && npm run build",
+    "integration-test": "cd integration-tests && npm run test-ci",
+    "lint-test": "cd integration-tests && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -17,6 +23,9 @@
   },
   "homepage": "https://github.com/AngelaE/ts-mountebank#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.29.3"
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.30.0",
+    "eslint": "^7.32.0",
+    "typescript": "^4.4.2"
   }
 }

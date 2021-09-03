@@ -1,0 +1,39 @@
+{
+  "name": "@anev/ts-mountebank-tests",
+  "version": "1.0.0",
+  "description": "Integration tests for @anev/ts-mountebank ",
+  "scripts": {
+    "test": "mocha --recursive ./lib",
+    "test-ci": "mocha --recursive --forbid-only ./dist",
+    "build": "tsc",
+    "pretty": "prettier -w ./**/*",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AngelaE/ts-mountebank"
+  },
+  "author": "Angela Evans",
+  "license": "ISC",
+  "dependencies": {
+    "superagent": "^6.1.0",
+    "typescript": "^4.4.2"
+  },
+  "devDependencies": {
+    "@anev/ts-mountebank": "file:../project/anev-ts-mountebank-1.3.0.tgz",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^8.2.3",
+    "@types/superagent": "^4.1.12",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "mocha": "^8.4.0",
+    "prettier": "^2.3.2",
+    "stream": "0.0.2",
+    "typescript-formatter": "^7.2.2"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts"
+}
