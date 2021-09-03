@@ -14,3 +14,6 @@ mb.*
 tsconfig.json
 tslint.json
 typings.json
+.eslint*
+.prettier*
+*.test.*

@@ -1,34 +1,20 @@
 import { assert, expect } from 'chai';
 import request from 'superagent';
-import { HttpMethod } from '../http-method';
-import { Imposter } from '../imposter';
-import { Mountebank } from '../mountebank';
-import { DebugProxy, Proxy, ProxyMode } from './proxy';
-import { DefaultStub, Stub } from '../stub';
+
+import {
+  Mountebank,
+  Imposter,
+  HttpMethod,
+  DefaultStub,
+  Stub,
+  DebugProxy,
+  ProxyMode,
+} from '@anev/ts-mountebank';
 
 const port = 12345;
 const testPath = '/testpath';
 
 describe('Proxy', () => {
-  describe('can be initialized correctly', () => {
-    const to = 'http://localhost:5123';
-    const mode = ProxyMode.ProxyOnce;
-    const addWaitBehavior = true;
-    const proxy = new Proxy(to).withMode(mode).withAddWaitBehavior(true);
-
-    it('should have a target address (to)', () => {
-      assert.equal(to, proxy.to);
-    });
-
-    it('should assign #mode', () => {
-      assert.equal(mode, proxy.mode);
-    });
-
-    it('should assign #addWaitBehavior', () => {
-      assert.equal(addWaitBehavior, proxy.addWaitBehavior);
-    });
-  });
-
   describe('Proxies work in Mountebank', async () => {
     const firstImposterResponseStatus = 201;
     const secondImposterResponseStatus = 222;

@@ -9,3 +9,5 @@ lib/
 mb.log
 mb.pid
 *.tgz
+project/node_modules/
+integration-tests/node_modules/

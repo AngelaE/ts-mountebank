@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 14",
+  "include": ["./src"],
+  "exclude": ["./node_modules"],
+
+  "compilerOptions": {
+    "lib": ["es2020", "DOM", "ES6"],
+    "module": "commonjs",
+    "target": "es6",
+    "outDir": "dist",
+
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

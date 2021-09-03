@@ -1,11 +1,14 @@
 import { expect } from 'chai';
 import request = require('superagent');
 
-import { Imposter } from './imposter';
-import { Mountebank } from './mountebank';
-import { Stub } from './stub';
-import { FlexiPredicate, Operator } from './predicate';
-import { DefaultResponse } from './response';
+import {
+  Imposter,
+  Mountebank,
+  Stub,
+  FlexiPredicate,
+  Operator,
+  DefaultResponse,
+} from '@anev/ts-mountebank';
 
 const port = 12345;
 async function getImposterResponseCode(path: string): Promise<number> {

@@ -1,6 +1,6 @@
 export { Stub, DefaultStub } from './stub';
 export * from './proxy';
-export { Response, NotFoundResponse } from './response';
+export { Response, NotFoundResponse, DefaultResponse } from './response';
 export {
   Predicate,
   DefaultPredicate,
