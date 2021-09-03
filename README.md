@@ -4,7 +4,8 @@ A simple node package that lets you manage your [Mountebank test server](http://
 Based on https://www.npmjs.com/package/@toincrease/node-mountebank, but 
 * updated/removed vulnerable packages,
 * modernized the code and
-* added ability to create very simple proxies.
+* added ability to create very simple proxies
+* improved predicates (not just equal)
 
 ## Usage
 
