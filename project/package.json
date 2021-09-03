@@ -1,9 +1,9 @@
 {
   "name": "@anev/ts-mountebank",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Mountebank client for TS / node ",
   "scripts": {
-    "release": "npm run build && npm run test && npm publish --access=public",
+    "release": "npm run build && npm run test && npm publish --access=public --dry-run",
     "pack": "npm run build && npm run test && npm pack",
     "test": "mocha --recursive ./lib",
     "test-ci": "mocha --recursive --forbid-only ./lib",
