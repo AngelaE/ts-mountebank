@@ -1,7 +1,7 @@
 name: npm-publish
 on:
-  release:
-    types: [published]
+  push:
+    branches: chore/release-pipeline
 jobs:
   npm-publish:
     name: npm-publish
@@ -17,7 +17,10 @@ jobs:
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@1.3.8
       with: # All of theses inputs are optional
-        create_tag: "false"
+        tag_name: "v%s"
+        tag_message: "v%s"
+        create_tag: "true"
+        commit_pattern: "^Release (\\S+)"
         workspace: "project"
         publish_command: "npm run release"
         publish_args: "--non-interactive --dry-run"
