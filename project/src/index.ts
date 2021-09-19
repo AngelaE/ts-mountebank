@@ -11,3 +11,4 @@ export {
 export { Imposter, DefaultImposter } from './imposter';
 export { HttpMethod } from './http-method';
 export { Mountebank } from './mountebank';
+export { IRequest } from './request';
