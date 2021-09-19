@@ -11,7 +11,7 @@
     "ci-integration-tests": "cd integration-tests && npm ci && npm run build",
     "integration-test": "cd integration-tests && npm run test-ci",
     "lint-test": "cd integration-tests && npm run lint",
-    "release": "copy-readme && cd project && npm run release",
+    "release": "npm run copy-readme && cd project && npm run release",
     "copy-readme": "node ./scripts/copy-readme.js"
   },
   "repository": {
