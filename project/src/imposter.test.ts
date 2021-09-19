@@ -1,4 +1,4 @@
-import { DefaultImposter } from './imposter';
+import { DefaultImposter, Imposter } from './imposter';
 import { HttpMethod } from './http-method';
 import { expect } from 'chai';
 
@@ -18,3 +18,17 @@ describe('DefaultImposter', () => {
     expect(imp.name).to.not.be.undefined;
   });
 });
+
+describe('Imposter', () => {
+  it('should not record requests by default', () => {
+    const imp = new Imposter();
+    
+    expect(imp.recordRequests).to.be.undefined;
+  })
+
+  it('should record requests when set', () => {
+    const imp = new Imposter().withRecordRequests(true);
+    
+    expect(imp.recordRequests).to.be.true;
+  })
+})
