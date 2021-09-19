@@ -41,7 +41,7 @@ export class Mountebank {
   }
 
   public async getImposter(port: number): Promise<Imposter> {
-    var response = await request.get(`${this.adminUrl}/imposters/${port}`).accept('application/json');
+    const response = await request.get(`${this.adminUrl}/imposters/${port}`).accept('application/json');
     return response.body;
   }
 }
