@@ -44,6 +44,17 @@ describe('Mountebank', () => {
     expect(responseCode).to.equal(222);
   });
 
+
+  it('can query an imposter', async () => {
+    // act
+    const imposter = await mb.getImposter(port);
+
+    // assert
+    expect(imposter).to.not.be.undefined;
+    expect(imposter.port).to.equal(port);
+    expect(imposter.stubs.length).to.equal(1);
+  });
+
   it('can delete an imposter', async () => {
     // act
     await mb.deleteImposter(port);

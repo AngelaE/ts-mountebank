@@ -39,4 +39,9 @@ export class Mountebank {
   public async deleteImposter(port: number): Promise<void> {
     await request.delete(`${this.adminUrl}/imposters/${port}`);
   }
+
+  public async getImposter(port: number): Promise<Imposter> {
+    var response = await request.get(`${this.adminUrl}/imposters/${port}`).accept('application/json');
+    return response.body;
+  }
 }
