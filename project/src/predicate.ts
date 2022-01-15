@@ -70,7 +70,7 @@ export class FlexiPredicate implements Predicate {
     if (this.path) {
       res.path = this.path;
     }
-    if (this._body) {
+    if (this._body !== undefined) {
       res.body = this._body;
     }
     return {

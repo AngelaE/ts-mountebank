@@ -1,4 +1,4 @@
-import { assert } from 'chai';
+import { assert, expect } from 'chai';
 import { FlexiPredicate, Operator } from './predicate';
 
 describe('Predicate', () => {
@@ -26,5 +26,14 @@ describe('Predicate', () => {
         });
       });
     });
+
+    it(`exists works with negatives`, () => {
+      const pred = new FlexiPredicate()
+        .withOperator(Operator.exists)
+        .withBody(false)
+        .toJSON();
+
+        expect(pred.exists.body).to.be.false;
+    })
   });
 });
