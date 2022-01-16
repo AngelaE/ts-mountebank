@@ -52,7 +52,7 @@ export class FlexiPredicate implements Predicate {
   toJSON(): any {
     const res: any = {};
 
-    if (this.headers !== undefined) {
+    if (this.headers.size > 0) {
       let headers: any;
       this.headers.forEach((value: string, key: string) => {
         if (headers === undefined) {
@@ -70,7 +70,7 @@ export class FlexiPredicate implements Predicate {
     if (this.path) {
       res.path = this.path;
     }
-    if (this._body) {
+    if (this._body !== undefined) {
       res.body = this._body;
     }
     return {
