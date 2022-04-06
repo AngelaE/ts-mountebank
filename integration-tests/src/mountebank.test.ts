@@ -16,7 +16,9 @@ async function getImposterResponseCode(): Promise<number> {
 
 describe('Mountebank', () => {
   // only runs on local machine for now
-  const mb = new Mountebank();
+  const mb = new Mountebank().withURL(
+    `http://localhost:${process.env.MB_PORT || '2525'}`
+  );
 
   it('is running', async () => {
     // act
@@ -44,7 +46,6 @@ describe('Mountebank', () => {
     expect(responseCode).to.equal(222);
   });
 
-
   it('can query an imposter', async () => {
     // act
     const imposter = await mb.getImposter(port);
@@ -63,7 +64,7 @@ describe('Mountebank', () => {
     try {
       await getImposterResponseCode();
     } catch (error) {
-      expect(error).to.match(/(?:ECONNREFUSED)/);
+      expect(error).to.match(/(?:ECONNREFUSED|ECONNRESET)/);
       return;
     }
     assert.fail('the request should have failed');
