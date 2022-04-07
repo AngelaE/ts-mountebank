@@ -2,14 +2,22 @@ import request = require('superagent');
 import { Imposter } from './imposter';
 
 export class Mountebank {
-  private adminUrl: string;
+  private mountebankUrl: string;
 
-  constructor(mountebankUrl = 'localhost', public logErrorResults = false) {
-    this.adminUrl = `http://${mountebankUrl}:2525`;
+  constructor(
+    mountebankHostname = 'localhost',
+    public logErrorResults = false
+  ) {
+    this.mountebankUrl = `http://${mountebankHostname}:2525`;
+  }
+
+  public withURL(mountebankUrl: string) {
+    this.mountebankUrl = mountebankUrl;
+    return this;
   }
 
   public async checkIsAlive(logIfNotAlive = false): Promise<boolean> {
-    const url = `${this.adminUrl}/`;
+    const url = `${this.mountebankUrl}/`;
     const result = await request.get(url);
     if (result.statusCode == 200) return true;
 
@@ -27,7 +35,7 @@ export class Mountebank {
     } catch (error) {} // eslint-disable-line
 
     const response = await request
-      .post(`${this.adminUrl}/imposters`)
+      .post(`${this.mountebankUrl}/imposters`)
       .send(JSON.stringify(imposter));
 
     if (response.statusCode != 201)
@@ -37,11 +45,13 @@ export class Mountebank {
   }
 
   public async deleteImposter(port: number): Promise<void> {
-    await request.delete(`${this.adminUrl}/imposters/${port}`);
+    await request.delete(`${this.mountebankUrl}/imposters/${port}`);
   }
 
   public async getImposter(port: number): Promise<Imposter> {
-    const response = await request.get(`${this.adminUrl}/imposters/${port}`).accept('application/json');
+    const response = await request
+      .get(`${this.mountebankUrl}/imposters/${port}`)
+      .accept('application/json');
     return response.body;
   }
 }

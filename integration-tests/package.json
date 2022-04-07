@@ -8,7 +8,11 @@
     "build": "tsc",
     "pretty": "prettier -w ./**/*",
     "lint": "eslint . --ext .ts",
-    "lint-fix": "eslint . --ext .ts --fix"
+    "lint-fix": "eslint . --ext .ts --fix",
+    "mb:up": "docker run -d --name mb -p 2525:2525 -p 12345:12345 -p 12346:12346 bbyars/mountebank:2.6.0 mb start",
+    "mb:up-on-port-2524": "docker run -d --name mb -p 2524:2525 -p 12345:12345 -p 12346:12346 bbyars/mountebank:2.6.0 mb start",
+    "test-different-mb-url": "MB_PORT=2524 npm run test-ci -- -g ^Mountebank",
+    "mb:down": "docker kill mb && docker rm mb"
   },
   "repository": {
     "type": "git",
