@@ -9,7 +9,7 @@ export class Imposter {
   public stubs: Stub[] = [];
   public name?: string = undefined;
   public recordRequests?: boolean = undefined;
-  
+
   // these properties are only populated when queried from MB
   public numberOfRequests = 0;
   public requests: IRequest[] = [];
@@ -29,7 +29,7 @@ export class Imposter {
     return this;
   }
 
-  withRecordRequests(recordRequests: boolean) : Imposter {
+  withRecordRequests(recordRequests: boolean): Imposter {
     this.recordRequests = recordRequests;
     return this;
   }
