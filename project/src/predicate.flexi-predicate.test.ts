@@ -33,7 +33,7 @@ describe('Predicate', () => {
         .withBody(false)
         .toJSON();
 
-        expect(pred.exists.body).to.be.false;
-    })
+      expect(pred.exists.body).to.be.false;
+    });
   });
 });
