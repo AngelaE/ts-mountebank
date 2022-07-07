@@ -34,7 +34,7 @@ jobs:
     - run: npm run unit-test
     - run: npm run pack
     # todo: use github packages
-    - run: npm i "file:../project/anev-ts-mountebank-1.5.0.tgz" --save-dev
+    - run: npm i "file:../project/efr-os-ts-mountebank-1.5.0.tgz" --save-dev
       working-directory: integration-tests
     - run: npm ci
       working-directory: integration-tests

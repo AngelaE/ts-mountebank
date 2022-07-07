@@ -9,7 +9,7 @@ import {
   Stub,
   DebugProxy,
   ProxyMode,
-} from '@anev/ts-mountebank';
+} from '@efr-os/ts-mountebank';
 
 const port = 12345;
 const testPath = '/testpath';

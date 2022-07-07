@@ -1,7 +1,7 @@
 {
-  "name": "@anev/ts-mountebank-tests",
+  "name": "@efr-os/ts-mountebank-tests",
   "version": "1.0.0",
-  "description": "Integration tests for @anev/ts-mountebank ",
+  "description": "Integration tests for @efr-os/ts-mountebank ",
   "scripts": {
     "test": "mocha --recursive ./lib",
     "test-ci": "mocha --recursive --forbid-only ./dist",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/AngelaE/ts-mountebank"
+    "url": "git://github.com/efr-os/ts-mountebank"
   },
   "author": "Angela Evans",
   "license": "ISC",
@@ -25,7 +25,7 @@
     "typescript": "^4.4.2"
   },
   "devDependencies": {
-    "@anev/ts-mountebank": "file:../project/anev-ts-mountebank-1.5.0.tgz",
+    "@efr-os/ts-mountebank": "file:../project/efr-os-ts-mountebank-1.5.0.tgz",
     "@types/chai": "^4.2.21",
     "@types/mocha": "^8.2.3",
     "@types/superagent": "^4.1.12",

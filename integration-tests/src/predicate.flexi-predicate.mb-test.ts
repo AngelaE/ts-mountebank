@@ -8,7 +8,7 @@ import {
   FlexiPredicate,
   Operator,
   DefaultResponse,
-} from '@anev/ts-mountebank';
+} from '@efr-os/ts-mountebank';
 
 const port = 12345;
 async function getImposterResponseCode(path: string): Promise<number> {

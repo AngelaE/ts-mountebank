@@ -6,7 +6,7 @@ import {
   Imposter,
   Mountebank,
   DefaultStub,
-} from '@anev/ts-mountebank';
+} from '@efr-os/ts-mountebank';
 
 const port = 12345;
 const testPath = '/testpath';

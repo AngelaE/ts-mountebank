@@ -6,7 +6,7 @@ import {
   Imposter,
   Mountebank,
   DefaultStub,
-} from '@anev/ts-mountebank';
+} from '@efr-os/ts-mountebank';
 
 const port = 12345;
 const testPath = '/testpath';
@@ -33,7 +33,7 @@ describe('Imposter', () => {
     // assert
     expect(queriedImposter.numberOfRequests).to.equal(1);
     expect(queriedImposter.requests.length).to.equal(1);
-    
+
     const request = queriedImposter.requests[0];
     expect(request.method).to.equal('GET');
     expect(request.path).to.equal(testPath);
