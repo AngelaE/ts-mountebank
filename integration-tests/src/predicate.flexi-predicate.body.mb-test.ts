@@ -11,31 +11,27 @@ import {
 } from '@anev/ts-mountebank';
 
 const port = 12345;
-async function getImposterResponseCode(path: string): Promise<number> {
-  return (await request.get(`http://localhost:${port}${path}`)).statusCode;
+const path = '/testpath';
+async function getImposterResponseCode(body: any): Promise<number> {
+  return (await request.post(`http://localhost:${port}${path}`).send(body))
+  .statusCode;
 }
 
-describe('The flexi predicate works with path', () => {
+describe('The flexi predicate works with query', () => {
   // only runs on local machine for now
   const mb = new Mountebank();
 
   const tests = [
     {
-      operator: Operator.startsWith,
-      predicatePath: '/test',
-      matches: ['/testpath'],
-      nonMatching: ['/te'],
+      predicateBody: {name: 'x', max: 5},
+      matches: [{name: 'x', max: 5}, {name: 'x', max: 5, min: 1}],
+      nonMatching: [{name: 'x'}, {name: 'x', max: 6}],
     },
-    {
-      operator: Operator.endsWith,
-      predicatePath: 'ong',
-      matches: ['/testpath-long'],
-      nonMatching: ['/testing'],
-    },
+
   ];
 
   tests.forEach(async (test) => {
-    describe(`${test.operator} Operator with path '${test.predicatePath}'`, () => {
+    describe(`Body works for predicate '${JSON.stringify(test.predicateBody)}'`, () => {
       before(async () => {
         const imposter = new Imposter()
           .withPort(port)
@@ -43,8 +39,9 @@ describe('The flexi predicate works with path', () => {
             new Stub()
               .withPredicate(
                 new FlexiPredicate()
-                  .withOperator(test.operator)
-                  .withPath(test.predicatePath)
+                  .withOperator(Operator.equals)
+                  .withPath(path)
+                  .withBody(test.predicateBody)
               )
               .withResponse(new DefaultResponse('found', 222))
           );
@@ -53,7 +50,7 @@ describe('The flexi predicate works with path', () => {
       });
 
       test.matches.forEach(async (match) => {
-        it(`works with match '${match}'`, async () => {
+        it(`works with match '${JSON.stringify(match)}'`, async () => {
           // assert
           const responseCode = await getImposterResponseCode(match);
           expect(responseCode).to.equal(222);
@@ -61,7 +58,7 @@ describe('The flexi predicate works with path', () => {
       });
 
       test.nonMatching.forEach(async (nonMatch) => {
-        it(`does not work with '${nonMatch}'`, async () => {
+        it(`does not work with '${JSON.stringify(nonMatch)}'`, async () => {
           // assert
           const responseCode = await getImposterResponseCode(nonMatch);
           expect(responseCode).to.equal(200);

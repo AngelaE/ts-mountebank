@@ -33,7 +33,7 @@ describe('Proxy', () => {
       it(`can create a debug proxy for mode ${test.mode}`, async () => {
         const mb = new Mountebank();
 
-        const body = 'yippie';
+        const body = {x: 'yippie'};
         const responseImposter = new Imposter()
           .withPort(port)
           .withStub(
@@ -81,7 +81,7 @@ describe('Proxy', () => {
           `http://localhost:${proxyPort}${testPath}`
         );
         expect(response.statusCode).to.equal(firstImposterResponseStatus);
-        expect(response.body).to.equal(body);
+        expect(response.body).to.deep.equal(body);
 
         try {
           await mb.createImposter(newImposter);

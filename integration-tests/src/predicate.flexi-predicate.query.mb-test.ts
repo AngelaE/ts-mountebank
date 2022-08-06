@@ -11,31 +11,26 @@ import {
 } from '@anev/ts-mountebank';
 
 const port = 12345;
-async function getImposterResponseCode(path: string): Promise<number> {
-  return (await request.get(`http://localhost:${port}${path}`)).statusCode;
+const path = '/testpath';
+async function getImposterResponseCode(queryString: string): Promise<number> {
+  return (await request.get(`http://localhost:${port}${path}?${queryString}`)).statusCode;
 }
 
-describe('The flexi predicate works with path', () => {
+describe('The flexi predicate works with query', () => {
   // only runs on local machine for now
   const mb = new Mountebank();
 
   const tests = [
     {
-      operator: Operator.startsWith,
-      predicatePath: '/test',
-      matches: ['/testpath'],
-      nonMatching: ['/te'],
+      predicateQuery: {name: 'x', max: 5},
+      matches: ['name=x&max=5', 'max=5&name=x', 'MAX=5&namE=X', 'name=x&max=5&another=y'],
+      nonMatching: ['max=5', 'name=x&max=6'],
     },
-    {
-      operator: Operator.endsWith,
-      predicatePath: 'ong',
-      matches: ['/testpath-long'],
-      nonMatching: ['/testing'],
-    },
+
   ];
 
   tests.forEach(async (test) => {
-    describe(`${test.operator} Operator with path '${test.predicatePath}'`, () => {
+    describe(`Query works for predicate '${JSON.stringify(test.predicateQuery)}'`, () => {
       before(async () => {
         const imposter = new Imposter()
           .withPort(port)
@@ -43,8 +38,9 @@ describe('The flexi predicate works with path', () => {
             new Stub()
               .withPredicate(
                 new FlexiPredicate()
-                  .withOperator(test.operator)
-                  .withPath(test.predicatePath)
+                  .withOperator(Operator.equals)
+                  .withPath(path)
+                  .withQuery(test.predicateQuery)
               )
               .withResponse(new DefaultResponse('found', 222))
           );

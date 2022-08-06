@@ -25,7 +25,7 @@ mb
 
 I recommend reading the [Mountebank documentation](http://www.mbtest.org/docs/api/overview) for a deeper understanding of their API.
 
-For more samples on how to use this package check this blog: https://angela-evans.com/easy-api-tests-with-mountebank/
+For more samples on how to use this package check this blog: https://angela-evans.com/easy-api-tests-with-mountebank/ or the integration tests.
 
 ### Create Imposter
 ```typescript
@@ -33,6 +33,19 @@ const mb = new Mountebank();
 let imposter = new Imposter().withPort(port).withStub(
     new DefaultStub(testPath, HttpMethod.GET, 'testbody', 222));
 await mb.createImposter(imposter);
+```
+
+### Check for QueryString
+Add a query to the stub. For usages check the tests in ./integration-tests/predicate.flexi-predicate.query.mb-tests.ts
+```typescript
+new Stub()
+    .withPredicate(
+    new FlexiPredicate()
+        .withOperator(Operator.equals)
+        .withPath('/testpath')
+        .withQuery({name: 'x', max: 5})
+    )
+    .withResponse(new DefaultResponse('found', 222))
 ```
 
 ### Create Debug Proxy
