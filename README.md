@@ -35,6 +35,19 @@ let imposter = new Imposter().withPort(port).withStub(
 await mb.createImposter(imposter);
 ```
 
+### Check for QueryString
+Add a query to the stub. For usages check the tests in ./integration-tests/predicate.flexi-predicate.query.mb-tests.ts
+```typescript
+new Stub()
+    .withPredicate(
+    new FlexiPredicate()
+        .withOperator(Operator.equals)
+        .withPath('/testpath')
+        .withQuery({name: 'x', max: 5})
+    )
+    .withResponse(new DefaultResponse('found', 222))
+```
+
 ### Create Debug Proxy
 A simple proxy which always proxies the request and records the responses.
 This is useful to 
