@@ -19,7 +19,7 @@
   "author": "Angela Evans",
   "license": "ISC",
   "dependencies": {
-    "superagent": "^6.1.0",
+    "superagent": "^7.0.2",
     "typescript": "^4.4.2"
   },
   "devDependencies": {
