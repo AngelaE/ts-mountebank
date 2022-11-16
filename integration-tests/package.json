@@ -33,7 +33,7 @@
     "@typescript-eslint/parser": "^4.29.3",
     "chai": "^4.3.4",
     "eslint": "^7.32.0",
-    "mocha": "^8.4.0",
+    "mocha": "^10.1.0",
     "prettier": "^2.3.2",
     "stream": "0.0.2",
     "typescript-formatter": "^7.2.2"
