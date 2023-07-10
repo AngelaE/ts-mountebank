@@ -1,7 +1,10 @@
+type ResponseMode = 'text' | 'binary';
+
 export class Response {
   statusCode = 200;
   body?: string = undefined;
   headers: Map<string, string>;
+  mode?: ResponseMode;
   constructor() {
     this.headers = new Map<string, string>();
   }
@@ -24,6 +27,11 @@ export class Response {
     return this;
   }
 
+  withMode(mode: ResponseMode): this {
+    this.mode = mode;
+    return this;
+  }
+
   toJSON(): any {
     const res: any = {};
 
@@ -43,6 +51,9 @@ export class Response {
     }
     if (this.statusCode) {
       res.statusCode = this.statusCode;
+    }
+    if (this.mode) {
+      res._mode = this.mode;
     }
 
     return { is: res };
