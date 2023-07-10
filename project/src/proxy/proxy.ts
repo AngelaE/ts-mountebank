@@ -18,17 +18,17 @@ export class Proxy {
     this.predicateGenerators = [];
   }
 
-  withMode(mode: ProxyMode): Proxy {
+  withMode(mode: ProxyMode): this {
     this.mode = mode;
     return this;
   }
 
-  withPredicateGenerator(generator: PredicateGenerator): Proxy {
+  withPredicateGenerator(generator: PredicateGenerator): this {
     this.predicateGenerators?.push(generator);
     return this;
   }
 
-  withAddWaitBehavior(addWaitBehavior: boolean): Proxy {
+  withAddWaitBehavior(addWaitBehavior: boolean): this {
     this.addWaitBehavior = addWaitBehavior;
     return this;
   }

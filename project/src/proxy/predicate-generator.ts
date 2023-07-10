@@ -5,7 +5,7 @@ import { Matches } from './matches';
 export class PredicateGenerator {
   matches?: Matches = undefined;
 
-  withMatches(matches: Matches): PredicateGenerator {
+  withMatches(matches: Matches): this {
     this.matches = matches;
     return this;
   }

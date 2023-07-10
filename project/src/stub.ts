@@ -12,17 +12,17 @@ export class Stub {
     this.responses = [];
   }
 
-  withResponse(response: Response): Stub {
+  withResponse(response: Response): this {
     this.responses.push(response);
     return this;
   }
 
-  withProxy(proxy: Proxy): Stub {
+  withProxy(proxy: Proxy): this {
     this.responses.push(proxy);
     return this;
   }
 
-  withPredicate(predicate: Predicate): Stub {
+  withPredicate(predicate: Predicate): this {
     this.predicates.push(predicate);
     return this;
   }

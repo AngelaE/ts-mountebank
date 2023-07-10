@@ -5,21 +5,21 @@ export class Response {
   constructor() {
     this.headers = new Map<string, string>();
   }
-  withHeader(name: string, value: string): Response {
+  withHeader(name: string, value: string): this {
     this.headers.set(name, value);
     return this;
   }
-  withStatusCode(statusCode: number): Response {
+  withStatusCode(statusCode: number): this {
     this.statusCode = statusCode;
     return this;
   }
-  withJSONBody(body: any): Response {
+  withJSONBody(body: any): this {
     this.withHeader('Content-Type', 'application/json'); // set the header to json for convenience
     this.body = JSON.stringify(body);
     return this;
   }
 
-  withBody(body: any): Response {
+  withBody(body: any): this {
     this.body = body;
     return this;
   }

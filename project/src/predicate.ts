@@ -24,37 +24,37 @@ export class FlexiPredicate implements Predicate {
 
   headers: Map<string, string> = new Map<string, string>();
 
-  withOperator(operator: Operator): FlexiPredicate {
+  withOperator(operator: Operator): this {
     this.operator = operator;
     return this;
   }
 
-  withHeader(header: string, value: string): FlexiPredicate {
+  withHeader(header: string, value: string): this {
     this.headers.set(header, value);
     return this;
   }
 
-  withQuery(query: any): FlexiPredicate {
+  withQuery(query: any): this {
     this.query = query;
     return this;
   }
   
-  withPath(path: string): FlexiPredicate {
+  withPath(path: string): this {
     this.path = path;
     return this;
   }
 
-  withMethod(method: HttpMethod): FlexiPredicate {
+  withMethod(method: HttpMethod): this {
     this.method = method;
     return this;
   }
   
-  withBearerToken(token: string): FlexiPredicate {
+  withBearerToken(token: string): this {
     this.withHeader('authorization', 'bearer ' + token);
     return this;
   }
 
-  withBody(body: any): FlexiPredicate {
+  withBody(body: any): this {
     this.body = body;
     return this;
   }
@@ -103,24 +103,24 @@ export class EqualPredicate implements Predicate {
 
   headers: Map<string, string> = new Map<string, string>();
 
-  withHeader(header: string, value: string): EqualPredicate {
+  withHeader(header: string, value: string): this {
     this.headers.set(header, value);
     return this;
   }
-  withPath(path: string): EqualPredicate {
+  withPath(path: string): this {
     this.path = path;
     return this;
   }
-  withMethod(method: HttpMethod): EqualPredicate {
+  withMethod(method: HttpMethod): this {
     this.method = method;
     return this;
   }
-  withBearerToken(token: string): EqualPredicate {
+  withBearerToken(token: string): this {
     this.withHeader('authorization', 'bearer ' + token);
     return this;
   }
 
-  withBody(body: any): EqualPredicate {
+  withBody(body: any): this {
     this._body = body;
     return this;
   }
