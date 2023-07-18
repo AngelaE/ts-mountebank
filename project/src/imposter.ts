@@ -9,27 +9,27 @@ export class Imposter {
   public stubs: Stub[] = [];
   public name?: string = undefined;
   public recordRequests?: boolean = undefined;
-  
+
   // these properties are only populated when queried from MB
   public numberOfRequests = 0;
   public requests: IRequest[] = [];
 
-  withStub(s: Stub): Imposter {
+  withStub(s: Stub): this {
     this.stubs.push(s);
     return this;
   }
 
-  withPort(p: number): Imposter {
+  withPort(p: number): this {
     this.port = p;
     return this;
   }
 
-  withName(name: string): Imposter {
+  withName(name: string): this {
     this.name = name;
     return this;
   }
 
-  withRecordRequests(recordRequests: boolean) : Imposter {
+  withRecordRequests(recordRequests: boolean): this {
     this.recordRequests = recordRequests;
     return this;
   }

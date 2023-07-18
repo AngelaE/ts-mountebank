@@ -11,7 +11,7 @@ export class Mountebank {
     this.mountebankUrl = `http://${mountebankHostname}:2525`;
   }
 
-  public withURL(mountebankUrl: string) {
+  public withURL(mountebankUrl: string): this {
     this.mountebankUrl = mountebankUrl;
     return this;
   }
