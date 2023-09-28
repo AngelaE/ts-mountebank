@@ -13,7 +13,8 @@ import {
 const port = 12345;
 const path = '/testpath';
 async function getImposterResponseCode(queryString: string): Promise<number> {
-  return (await request.get(`http://localhost:${port}${path}?${queryString}`)).statusCode;
+  return (await request.get(`http://localhost:${port}${path}?${queryString}`))
+    .statusCode;
 }
 
 describe('The flexi predicate works with query', () => {
@@ -22,15 +23,21 @@ describe('The flexi predicate works with query', () => {
 
   const tests = [
     {
-      predicateQuery: {name: 'x', max: 5},
-      matches: ['name=x&max=5', 'max=5&name=x', 'MAX=5&namE=X', 'name=x&max=5&another=y'],
+      predicateQuery: { name: 'x', max: 5 },
+      matches: [
+        'name=x&max=5',
+        'max=5&name=x',
+        'MAX=5&namE=X',
+        'name=x&max=5&another=y',
+      ],
       nonMatching: ['max=5', 'name=x&max=6'],
     },
-
   ];
 
   tests.forEach(async (test) => {
-    describe(`Query works for predicate '${JSON.stringify(test.predicateQuery)}'`, () => {
+    describe(`Query works for predicate '${JSON.stringify(
+      test.predicateQuery,
+    )}'`, () => {
       before(async () => {
         const imposter = new Imposter()
           .withPort(port)
@@ -40,9 +47,9 @@ describe('The flexi predicate works with query', () => {
                 new FlexiPredicate()
                   .withOperator(Operator.equals)
                   .withPath(path)
-                  .withQuery(test.predicateQuery)
+                  .withQuery(test.predicateQuery),
               )
-              .withResponse(new DefaultResponse('found', 222))
+              .withResponse(new DefaultResponse('found', 222)),
           );
 
         await mb.createImposter(imposter);

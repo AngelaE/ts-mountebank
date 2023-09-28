@@ -1,19 +1,28 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Node 14",
-  "include": ["./src"],
-  "exclude": ["./node_modules"],
-
+  "display": "Node 18",
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "./node_modules"
+  ],
   "compilerOptions": {
-    "lib": ["es2020", "DOM", "ES6"],
-    "module": "commonjs",
-    "target": "es6",
+    "lib": [
+      "es2022",
+      "DOM",
+      "ES6"
+    ],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "es2022",
     "outDir": "dist",
-
+    "sourceMap": true,
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noUncheckedIndexedAccess": true
   }
 }

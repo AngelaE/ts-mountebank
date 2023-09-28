@@ -13,7 +13,7 @@ describe('Predicate', () => {
     describe('#withHeader', () => {
       const pred = new EqualPredicate().withHeader(
         'custom_header',
-        'header_value'
+        'header_value',
       );
       it('should have the header predicate', () => {
         assert.equal(pred.headers.get('custom_header'), 'header_value');

@@ -33,7 +33,7 @@ describe('Proxy', () => {
       it(`can create a debug proxy for mode ${test.mode}`, async () => {
         const mb = new Mountebank();
 
-        const body = {x: 'yippie'};
+        const body = { x: 'yippie' };
         const responseImposter = new Imposter()
           .withPort(port)
           .withStub(
@@ -41,8 +41,8 @@ describe('Proxy', () => {
               testPath,
               HttpMethod.GET,
               body,
-              firstImposterResponseStatus
-            )
+              firstImposterResponseStatus,
+            ),
           );
         const newImposter = new Imposter()
           .withPort(port)
@@ -51,8 +51,8 @@ describe('Proxy', () => {
               testPath,
               HttpMethod.GET,
               body,
-              secondImposterResponseStatus
-            )
+              secondImposterResponseStatus,
+            ),
           );
 
         const proxyPort = port + 1;
@@ -64,8 +64,8 @@ describe('Proxy', () => {
             new Stub().withProxy(
               new DebugProxy(`http://localhost:${port}`)
                 .withMode(test.mode)
-                .withAddWaitBehavior(true)
-            )
+                .withAddWaitBehavior(true),
+            ),
           );
 
         try {
@@ -78,7 +78,7 @@ describe('Proxy', () => {
 
         // assert
         let response = await request.get(
-          `http://localhost:${proxyPort}${testPath}`
+          `http://localhost:${proxyPort}${testPath}`,
         );
         expect(response.statusCode).to.equal(firstImposterResponseStatus);
         expect(response.body).to.deep.equal(body);
@@ -90,7 +90,7 @@ describe('Proxy', () => {
           assert.fail();
         }
         response = await request.get(
-          `http://localhost:${proxyPort}${testPath}`
+          `http://localhost:${proxyPort}${testPath}`,
         );
         expect(response.statusCode).to.equal(test.expectedSecondResponseStatus);
       });
