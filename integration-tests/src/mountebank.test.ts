@@ -17,7 +17,7 @@ async function getImposterResponseCode(): Promise<number> {
 describe('Mountebank', () => {
   // only runs on local machine for now
   const mb = new Mountebank().withURL(
-    `http://localhost:${process.env.MB_PORT || '2525'}`
+    `http://localhost:${process.env.MB_PORT || '2525'}`,
   );
 
   it('is running', async () => {

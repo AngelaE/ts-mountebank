@@ -32,7 +32,7 @@ export class DefaultStub extends Stub {
   constructor(path: string, method: HttpMethod, body: any, statusCode: number) {
     super();
     return this.withPredicate(new DefaultPredicate(path, method)).withResponse(
-      new DefaultResponse(body, statusCode)
+      new DefaultResponse(body, statusCode),
     );
   }
 }

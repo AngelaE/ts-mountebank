@@ -65,7 +65,7 @@ export class DebugProxy extends Proxy {
   constructor(to: string) {
     super(to);
     this.withMode(ProxyMode.ProxyAlways).withPredicateGenerator(
-      new PredicateGenerator().withMatches(new Matches())
+      new PredicateGenerator().withMatches(new Matches()),
     );
   }
 }

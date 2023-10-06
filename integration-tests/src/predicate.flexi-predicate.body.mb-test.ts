@@ -14,7 +14,7 @@ const port = 12345;
 const path = '/testpath';
 async function getImposterResponseCode(body: any): Promise<number> {
   return (await request.post(`http://localhost:${port}${path}`).send(body))
-  .statusCode;
+    .statusCode;
 }
 
 describe('The flexi predicate works with query', () => {
@@ -23,15 +23,19 @@ describe('The flexi predicate works with query', () => {
 
   const tests = [
     {
-      predicateBody: {name: 'x', max: 5},
-      matches: [{name: 'x', max: 5}, {name: 'x', max: 5, min: 1}],
-      nonMatching: [{name: 'x'}, {name: 'x', max: 6}],
+      predicateBody: { name: 'x', max: 5 },
+      matches: [
+        { name: 'x', max: 5 },
+        { name: 'x', max: 5, min: 1 },
+      ],
+      nonMatching: [{ name: 'x' }, { name: 'x', max: 6 }],
     },
-
   ];
 
   tests.forEach(async (test) => {
-    describe(`Body works for predicate '${JSON.stringify(test.predicateBody)}'`, () => {
+    describe(`Body works for predicate '${JSON.stringify(
+      test.predicateBody,
+    )}'`, () => {
       before(async () => {
         const imposter = new Imposter()
           .withPort(port)
@@ -41,9 +45,9 @@ describe('The flexi predicate works with query', () => {
                 new FlexiPredicate()
                   .withOperator(Operator.equals)
                   .withPath(path)
-                  .withBody(test.predicateBody)
+                  .withBody(test.predicateBody),
               )
-              .withResponse(new DefaultResponse('found', 222))
+              .withResponse(new DefaultResponse('found', 222)),
           );
 
         await mb.createImposter(imposter);

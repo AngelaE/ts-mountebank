@@ -38,7 +38,7 @@ export class FlexiPredicate implements Predicate {
     this.query = query;
     return this;
   }
-  
+
   withPath(path: string): this {
     this.path = path;
     return this;
@@ -48,7 +48,7 @@ export class FlexiPredicate implements Predicate {
     this.method = method;
     return this;
   }
-  
+
   withBearerToken(token: string): this {
     this.withHeader('authorization', 'bearer ' + token);
     return this;
@@ -80,7 +80,7 @@ export class FlexiPredicate implements Predicate {
       res.path = this.path;
     }
 
-    if(this.query !== undefined) {
+    if (this.query !== undefined) {
       res.query = this.query;
     }
 
@@ -97,7 +97,7 @@ export class EqualPredicate implements Predicate {
   method: HttpMethod = HttpMethod.GET;
   path = '/';
   private _body?: string = undefined;
-  // does not have a queryString option because you can 
+  // does not have a queryString option because you can
   // just use the FlexiPredicate
   // The EqualPredicate is just left here for backwards compatibility
 
@@ -124,7 +124,7 @@ export class EqualPredicate implements Predicate {
     this._body = body;
     return this;
   }
-  
+
   toJSON(): any {
     const res: any = {};
 

@@ -1,7 +1,6 @@
 import { assert } from 'chai';
 import { Proxy, ProxyMode } from './proxy';
 
-
 describe('Proxy', () => {
   describe('can be initialized correctly', () => {
     const to = 'http://localhost:5123';

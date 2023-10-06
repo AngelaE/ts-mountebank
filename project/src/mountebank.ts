@@ -6,7 +6,7 @@ export class Mountebank {
 
   constructor(
     mountebankHostname = 'localhost',
-    public logErrorResults = false
+    public logErrorResults = false,
   ) {
     this.mountebankUrl = `http://${mountebankHostname}:2525`;
   }
@@ -40,7 +40,7 @@ export class Mountebank {
 
     if (response.statusCode != 201)
       throw new Error(
-        `Problem creating imposter: ${JSON.stringify(response?.error)}`
+        `Problem creating imposter: ${JSON.stringify(response?.error)}`,
       );
   }
 

@@ -33,11 +33,10 @@ describe('Imposter', () => {
     // assert
     expect(queriedImposter.numberOfRequests).to.equal(1);
     expect(queriedImposter.requests.length).to.equal(1);
-    
+
     const request = queriedImposter.requests[0];
-    expect(request.method).to.equal('GET');
-    expect(request.path).to.equal(testPath);
+    expect(request?.method).to.equal('GET');
+    expect(request?.path).to.equal(testPath);
     console.log(queriedImposter);
   });
-
 });

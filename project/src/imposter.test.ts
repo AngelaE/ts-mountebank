@@ -7,7 +7,7 @@ describe('DefaultImposter', () => {
     '/path',
     HttpMethod.POST,
     { xxx: 'test123' },
-    200
+    200,
   ).withName('testImposter');
 
   it('should have a default stub', () => {
@@ -22,13 +22,13 @@ describe('DefaultImposter', () => {
 describe('Imposter', () => {
   it('should not record requests by default', () => {
     const imp = new Imposter();
-    
+
     expect(imp.recordRequests).to.be.undefined;
-  })
+  });
 
   it('should record requests when set', () => {
     const imp = new Imposter().withRecordRequests(true);
-    
+
     expect(imp.recordRequests).to.be.true;
-  })
-})
+  });
+});

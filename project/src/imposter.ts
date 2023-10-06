@@ -40,7 +40,7 @@ export class DefaultImposter extends Imposter {
     super();
 
     return this.withStub(
-      new DefaultStub(path, method, body, statusCode)
+      new DefaultStub(path, method, body, statusCode),
     ).withStub(new Stub().withResponse(new NotFoundResponse()));
   }
 }

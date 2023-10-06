@@ -44,9 +44,9 @@ describe('The flexi predicate works with path', () => {
               .withPredicate(
                 new FlexiPredicate()
                   .withOperator(test.operator)
-                  .withPath(test.predicatePath)
+                  .withPath(test.predicatePath),
               )
-              .withResponse(new DefaultResponse('found', 222))
+              .withResponse(new DefaultResponse('found', 222)),
           );
 
         await mb.createImposter(imposter);
