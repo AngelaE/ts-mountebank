@@ -24,9 +24,7 @@ jobs:
       uses: pnpm/action-setup@v2
       with:
         version: 8.12.0
-        run_install: |
-          - recursive: true
-            args: [--frozen-lockfile, --strict-peer-dependencies]
+        run_install: false
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
@@ -41,7 +39,7 @@ jobs:
     - run: pnpm unit-test
     - run: pnpm pack
     # todo: use github packages
-    - run: pnpm i "file:../project/anev-ts-mountebank-1.8.0.tgz" --save-dev
+    - run: pnpm add -D ../project/anev-ts-mountebank-1.8.0.tgz
       working-directory: integration-tests
     - run: pnpm --frozen-lockfile recursive install
       working-directory: integration-tests
