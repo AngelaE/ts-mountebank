@@ -21,24 +21,29 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install pm2 -g
-    - run: npm install mountebank@2.9.1 -g
+        cache: 'pnpm'
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+        with:
+          version: 8.12.0
+          run_install: false
+    - run: pnpm add pm2 -g
+    - run: pnpm add mountebank@2.9.1 -g
     - run: pm2 start mb
-    - run: npm ci
-    - run: npm run ci-project
-    - run: npm run lint-project
-    - run: npm run unit-test
-    - run: npm run pack
+    - run: pnpm --frozen-lockfile recursive install
+    - run: pnpm ci-project
+    - run: pnpm lint-project
+    - run: pnpm unit-test
+    - run: pnpm pack
     # todo: use github packages
-    - run: npm i "file:../project/anev-ts-mountebank-1.8.0.tgz" --save-dev
+    - run: pnpm i "file:../project/anev-ts-mountebank-1.8.0.tgz" --save-dev
       working-directory: integration-tests
-    - run: npm ci
+    - run: pnpm --frozen-lockfile recursive install
       working-directory: integration-tests
-    - run: npm run build
+    - run: pnpm build
       working-directory: integration-tests
-    - run: npm run lint-test
-    - run: npm run integration-test
+    - run: pnpm lint-test
+    - run: pnpm integration-test
