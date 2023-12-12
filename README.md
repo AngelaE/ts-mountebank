@@ -11,6 +11,13 @@ Based on https://www.npmjs.com/package/@toincrease/node-mountebank, but
 
 ### Pre-Requisite
 
+Using nix and devbox.sh to setup local dev environment tooling
+# [Devbox.sh](https://www.jetpack.io/devbox/docs/)
+1. [Motivation](https://alan.norbauer.com/articles/devbox-intro)
+2. Install nix using `./setup-nix.sh`
+3. [Install devbox.sh](https://www.jetpack.io/devbox/docs/installing_devbox/)
+4. Start devbox.sh using `devbox shell`
+
 Install Mountebank:
 
 ```
