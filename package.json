@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "lint-project": "pnpm -C project lint",
-    "ci-project": "pnpm -C project --frozen-lockfile i && pnpm build",
+    "ci-project": "pnpm -C project build",
     "package": "pnpm -C project package",
     "unit-test": "pnpm -C project test-ci",
-    "ci-integration-tests": "pnpm -C integration-tests --frozen-lockfile i && pnpm build",
-    "integration-test": "pnpm -C integration-tests test-ci",
+    "ci-integration-tests": "pnpm package && pnpm -C integration-tests add -D ../project/anev-ts-mountebank-1.8.0.tgz && pnpm -C integration-tests build",
+    "integration-test": "pnpm package && pnpm -C integration-tests add -D ../project/anev-ts-mountebank-1.8.0.tgz && pnpm -C integration-tests test-ci",
     "lint-test": "pnpm -C integration-tests lint",
     "release": "pnpm copy-readme && pnpm -C project release",
     "copy-readme": "node ./scripts/copy-readme.js"
