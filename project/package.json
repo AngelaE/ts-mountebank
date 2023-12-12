@@ -4,7 +4,7 @@
   "description": "Mountebank client for TS / node ",
   "scripts": {
     "release": "pnpm build && pnpm test && pnpm publish --access=public",
-    "pack": "pnpm build && pnpm test && pnpm pack",
+    "package": "pnpm build && pnpm test && pnpm pack",
     "test": "mocha --recursive ./lib",
     "test-ci": "mocha --recursive --forbid-only ./lib",
     "build": "tsc",
