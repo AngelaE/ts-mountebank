@@ -9,7 +9,6 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "syncpack fix-mismatches",
     "lint-project": "pnpm -C project lint",
     "ci-project": "pnpm -C project build",
     "package": "pnpm -C project package",
@@ -34,7 +33,6 @@
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",
-    "syncpack": "^11.2.1",
     "typescript": "^5.3.3"
   }
 }
