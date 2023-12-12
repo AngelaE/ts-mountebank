@@ -20,16 +20,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8.12.0
+        run_install: |
+          - recursive: true
+            args: [--frozen-lockfile, --strict-peer-dependencies]
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8.12.0
-        run_install: false
     - run: pnpm add pm2 -g
     - run: pnpm add mountebank@2.9.1 -g
     - run: pm2 start mb
