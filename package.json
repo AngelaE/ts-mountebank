@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint-project": "cd project && npm run lint",
-    "ci-project": "cd project && npm ci && npm run build",
-    "pack": "cd project && npm pack",
-    "unit-test": "cd project && npm run test-ci",
-    "ci-integration-tests": "cd integration-tests && npm ci && npm run build",
-    "integration-test": "cd integration-tests && npm run test-ci",
-    "lint-test": "cd integration-tests && npm run lint",
-    "release": "npm run copy-readme && cd project && npm run release",
+    "lint-project": "cd project && pnpm lint",
+    "ci-project": "cd project && pnpm --frozen-lockfile i && pnpm build",
+    "pack": "cd project && pnpm pack",
+    "unit-test": "cd project && pnpm test-ci",
+    "ci-integration-tests": "cd integration-tests && pnpm --frozen-lockfile i && pnpm build",
+    "integration-test": "cd integration-tests && pnpm test-ci",
+    "lint-test": "cd integration-tests && pnpm lint",
+    "release": "pnpm copy-readme && cd project && pnpm release",
     "copy-readme": "node ./scripts/copy-readme.js"
   },
   "repository": {

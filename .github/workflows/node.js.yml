@@ -33,11 +33,11 @@ jobs:
     - run: pnpm add pm2 -g
     - run: pnpm add mountebank@2.9.1 -g
     - run: pm2 start mb
-    - run: pnpm pack
-    - run: pnpm --frozen-lockfile recursive install
+    - run: pnpm --frozen-lockfile install
     - run: pnpm ci-project
     - run: pnpm lint-project
     - run: pnpm unit-test
+    - run: pnpm pack
     # todo: use github packages
     - run: pnpm add -D ../project/anev-ts-mountebank-1.8.0.tgz
       working-directory: integration-tests

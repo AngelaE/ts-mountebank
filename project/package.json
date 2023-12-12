@@ -3,8 +3,8 @@
   "version": "1.8.0",
   "description": "Mountebank client for TS / node ",
   "scripts": {
-    "release": "npm run build && npm run test && npm publish --access=public",
-    "pack": "npm run build && npm run test && npm pack",
+    "release": "pnpm build && pnpm test && pnpm publish --access=public",
+    "pack": "pnpm build && pnpm test && pnpm pack",
     "test": "mocha --recursive ./lib",
     "test-ci": "mocha --recursive --forbid-only ./lib",
     "build": "tsc",
