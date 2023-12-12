@@ -36,7 +36,7 @@ jobs:
     - run: pnpm unit-test
     - run: pnpm package
     # todo: use github packages
-    - run: pnpm add -D ../project/anev-ts-mountebank-1.8.0.tgz
+    - run: pnpm add -D ../project/anev-ts-mountebank-1.8.1.tgz
       working-directory: integration-tests
     - run: pnpm --frozen-lockfile recursive install
       working-directory: integration-tests
