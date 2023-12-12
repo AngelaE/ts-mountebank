@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=18.18",
+    "pnpm": ">=8.12"
+  },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "syncpack fix-mismatches",
     "lint-project": "pnpm -C project lint",
     "ci-project": "pnpm -C project build",
     "package": "pnpm -C project package",
@@ -25,9 +31,10 @@
   },
   "homepage": "https://github.com/AngelaE/ts-mountebank#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.7",
-    "@typescript-eslint/parser": "^6.7",
-    "eslint": "^8.50",
-    "typescript": "^5.2.2"
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.55.0",
+    "syncpack": "^11.2.1",
+    "typescript": "^5.3.3"
   }
 }
