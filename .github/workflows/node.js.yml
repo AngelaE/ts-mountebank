@@ -33,7 +33,7 @@ jobs:
     - run: pnpm add pm2 -g
     - run: pnpm add mountebank@2.9.1 -g
     - run: pm2 start mb
-    - run: pnpm --frozen-lockfile recursive install
+    - run: pnpm --frozen-lockfile install
     - run: pnpm ci-project
     - run: pnpm lint-project
     - run: pnpm unit-test
