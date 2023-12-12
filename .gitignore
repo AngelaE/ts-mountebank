@@ -6,8 +6,9 @@ typings/*
 npm-debug.log
 dist/
 lib/
-mb.log
-mb.pid
+mb*.log
+mb*.pid
+pm2*
 *.tgz
 project/node_modules/
 integration-tests/node_modules/

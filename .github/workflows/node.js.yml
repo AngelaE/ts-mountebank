@@ -30,9 +30,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
-    - run: pnpm add pm2 -g
-    - run: pnpm add mountebank@2.9.1 -g
-    - run: pm2 start mb
     - run: pnpm --frozen-lockfile recursive install
     - run: pnpm ci-project
     - run: pnpm lint-project

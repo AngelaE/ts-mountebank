@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Integration tests for @anev/ts-mountebank ",
   "scripts": {
+    "start:mb": "mb",
     "test": "mocha --recursive ./dist",
-    "test-ci": "mocha --recursive --forbid-only ./dist",
+    "test-ci": "run-p -clnr start:mb mocha:test-ci",
+    "mocha:test-ci": "sleep 1 && mocha --recursive --forbid-only ./dist",
     "build": "tsc",
     "pretty": "prettier -w ./**/*",
     "lint": "eslint . --ext .ts",
@@ -33,7 +35,8 @@
     "chai": "^4.3.9",
     "eslint": "^8.50",
     "mocha": "^10.2.0",
-    "mountebank": "^2.9.1",
+    "mountebank": "2.9.1",
+    "npm-run-all2": "^6.1.1",
     "prettier": "^3.0",
     "stream": "0.0.2",
     "typescript-formatter": "^7.2.2"
