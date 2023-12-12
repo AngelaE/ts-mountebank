@@ -25,7 +25,6 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@anev/ts-mountebank": "file:../project/anev-ts-mountebank-1.8.0.tgz",
     "@types/chai": "^4.3",
     "@types/mocha": "^10.0",
     "@types/superagent": "^4.1",
