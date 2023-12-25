@@ -1,17 +1,6 @@
 {
-  "packages": [
-    "nodejs@18.18.2",
-    "corepack@18.18.2",
-    "docker@latest"
-  ],
+  "packages": ["nodejs@18.18.2", "corepack@18.18.2", "docker@latest"],
   "shell": {
-    "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
-    ],
-    "scripts": {
-      "test": [
-        "echo \"Error: no test specified\" && exit 1"
-      ]
-    }
+    "init_hook": ["echo 'Welcome to devbox!' > /dev/null"]
   }
 }
