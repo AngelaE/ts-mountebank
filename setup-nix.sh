@@ -72,7 +72,7 @@ install_nixpkg_manager
 ensure_nix_profile
 
 echo "------------------------------------------ CONGRATS !!! ----------------------------------------------------"
-echo "  ts-monutebank basic nix development environment tooling setup complete."
+echo "  ts-mountebank basic nix development environment tooling setup complete."
 echo "  Please exit this shell terminal and start a new one in ts-mountebank root directory."
 echo "------------------------------------------    END       ----------------------------------------------------"
 rm -f ./install-nix
