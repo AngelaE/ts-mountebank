@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=16.20.2",
+    "pnpm": ">=8.13"
+  },
   "scripts": {
-    "lint-project": "cd project && npm run lint",
-    "ci-project": "cd project && npm ci && npm run build",
-    "pack": "cd project && npm pack",
-    "unit-test": "cd project && npm run test-ci",
-    "ci-integration-tests": "cd integration-tests && npm ci && npm run build",
-    "integration-test": "cd integration-tests && npm run test-ci",
-    "lint-test": "cd integration-tests && npm run lint",
-    "release": "npm run copy-readme && cd project && npm run release",
+    "preinstall": "npx only-allow pnpm",
+    "lint-project": "pnpm -C project lint",
+    "ci-project": "pnpm -C project build",
+    "package": "pnpm -C project package",
+    "unit-test": "pnpm -C project test-ci",
+    "ci-integration-tests": "pnpm package && pnpm -C integration-tests add -D 'file://../project/anev-ts-mountebank-1.8.1.tgz' && pnpm -C integration-tests build",
+    "integration-test": "pnpm package && pnpm -C integration-tests add -D 'file://../project/anev-ts-mountebank-1.8.1.tgz' && pnpm -C integration-tests test-ci",
+    "lint-test": "pnpm -C integration-tests lint",
+    "release": "pnpm copy-readme && pnpm -C project release",
     "copy-readme": "node ./scripts/copy-readme.js"
   },
   "repository": {

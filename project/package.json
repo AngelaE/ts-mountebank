@@ -1,10 +1,15 @@
 {
   "name": "@anev/ts-mountebank",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Mountebank client for TS / node ",
+  "engines": {
+    "node": ">=16.20.2",
+    "pnpm": ">=8.13"
+  },
   "scripts": {
-    "release": "npm run build && npm run test && npm publish --access=public",
-    "pack": "npm run build && npm run test && npm pack",
+    "preinstall": "npx only-allow pnpm",
+    "release": "pnpm build && pnpm test && pnpm publish --access=public",
+    "package": "pnpm build && pnpm test && pnpm pack",
     "test": "mocha --recursive ./lib",
     "test-ci": "mocha --recursive --forbid-only ./lib",
     "build": "tsc",

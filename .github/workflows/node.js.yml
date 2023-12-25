@@ -5,13 +5,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,26 +18,28 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install pm2 -g
-    - run: npm install mountebank@2.9.1 -g
-    - run: pm2 start mb
-    - run: npm ci
-    - run: npm run ci-project
-    - run: npm run lint-project
-    - run: npm run unit-test
-    - run: npm run pack
-    # todo: use github packages
-    - run: npm i "file:../project/anev-ts-mountebank-1.8.0.tgz" --save-dev
-      working-directory: integration-tests
-    - run: npm ci
-      working-directory: integration-tests
-    - run: npm run build
-      working-directory: integration-tests
-    - run: npm run lint-test
-    - run: npm run integration-test
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.13.0
+          run_install: false
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - run: pnpm --frozen-lockfile recursive install
+      - run: pnpm ci-project
+      - run: pnpm lint-project
+      - run: pnpm unit-test
+      - run: pnpm package
+      # todo: use github packages
+      - run: pnpm add -D "file:../project/anev-ts-mountebank-1.8.1.tgz"
+        working-directory: integration-tests
+      - run: pnpm --frozen-lockfile recursive install
+        working-directory: integration-tests
+      - run: pnpm build
+        working-directory: integration-tests
+      - run: pnpm lint-test
+      - run: pnpm integration-test
