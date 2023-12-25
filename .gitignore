@@ -1,8 +1,9 @@
 .idea/*
+.fleet/*
+.vscode/*
 node_modules/*
 build/*
 typings/*
-.vscode/*
 npm-debug.log
 dist/
 lib/
@@ -12,4 +13,6 @@ lib/
 *.tgz
 project/node_modules/
 integration-tests/node_modules/
+integration-tests/mb*.log*
+integration-tests/mb.pid
 project/readme.md

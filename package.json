@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": ">=16.20.2",
-    "pnpm": ">=8.13"
+    "pnpm": ">=8.14.1"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -13,8 +13,9 @@
     "ci-project": "pnpm -C project build",
     "package": "pnpm -C project package",
     "unit-test": "pnpm -C project test-ci",
-    "ci-integration-tests": "pnpm package && pnpm -C integration-tests add -D 'file://../project/anev-ts-mountebank-1.8.1.tgz' && pnpm -C integration-tests build",
-    "integration-test": "pnpm package && pnpm -C integration-tests add -D 'file://../project/anev-ts-mountebank-1.8.1.tgz' && pnpm -C integration-tests test-ci",
+    "build:integration-tests": "pnpm package && pnpm -C integration-tests add -D 'file://../project/anev-ts-mountebank-1.8.2.tgz' && pnpm -C integration-tests build && pnpm -C integration-tests remove @anev/ts-mountebank",
+    "integration-tests-local": "pnpm package && pnpm -C integration-tests add -D 'file://../project/anev-ts-mountebank-1.8.2.tgz' && pnpm -C integration-tests test-local && pnpm -C integration-tests remove @anev/ts-mountebank",
+    "integration-tests-ci": "pnpm package && pnpm -C integration-tests add -D 'file://../project/anev-ts-mountebank-1.8.2.tgz' && pnpm -C integration-tests test-ci && pnpm -C integration-tests remove @anev/ts-mountebank",
     "lint-test": "pnpm -C integration-tests lint",
     "release": "pnpm copy-readme && pnpm -C project release",
     "copy-readme": "node ./scripts/copy-readme.js"
@@ -30,9 +31,9 @@
   },
   "homepage": "https://github.com/AngelaE/ts-mountebank#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.7",
-    "@typescript-eslint/parser": "^6.7",
-    "eslint": "^8.50",
-    "typescript": "^5.2.2"
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
   }
 }

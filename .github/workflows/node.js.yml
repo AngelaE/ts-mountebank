@@ -22,7 +22,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.13.0
+          version: 8.14.1
           run_install: false
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -35,11 +35,11 @@ jobs:
       - run: pnpm unit-test
       - run: pnpm package
       # todo: use github packages
-      - run: pnpm add -D "file:../project/anev-ts-mountebank-1.8.1.tgz"
+      - run: pnpm add -D "file:../project/anev-ts-mountebank-1.8.2.tgz"
         working-directory: integration-tests
       - run: pnpm --frozen-lockfile recursive install
         working-directory: integration-tests
       - run: pnpm build
         working-directory: integration-tests
       - run: pnpm lint-test
-      - run: pnpm integration-test
+      - run: pnpm integration-tests-ci

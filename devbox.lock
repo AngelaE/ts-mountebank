@@ -1,0 +1,65 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "corepack_18@18.19.0": {
+      "last_modified": "2023-12-13T22:54:10Z",
+      "resolved": "github:NixOS/nixpkgs/fd04bea4cbf76f86f244b9e2549fca066db8ddff#corepack_18",
+      "source": "devbox-search",
+      "version": "18.19.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/b5zwm847n6zpfqddp9sn79vxkkcy5l2z-corepack-nodejs-18.19.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/dw4f1jjsff79bbss2b8knvy363qnhdrn-corepack-nodejs-18.19.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/xsjwkqn3g8qs4ajl8i0bbay4qgrgiaqa-corepack-nodejs-18.19.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/njz296qypjl1ipnppb9kfskgqz1mf86a-corepack-nodejs-18.19.0"
+        }
+      }
+    },
+    "docker@latest": {
+      "last_modified": "2023-12-13T22:54:10Z",
+      "resolved": "github:NixOS/nixpkgs/fd04bea4cbf76f86f244b9e2549fca066db8ddff#docker",
+      "source": "devbox-search",
+      "version": "24.0.5",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/956bjn9hvpvha1bs7pwq1nhpddbhjh03-docker-24.0.5"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/ahkwpjvi9j78fd7cs9qwbj4k7v098ihh-docker-24.0.5"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/241nci502wbg13n28qd2fyia75fzbij3-docker-24.0.5"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/jcmgfbrxmcpmzgihy8ksmsizmnidl4sg-docker-24.0.5"
+        }
+      }
+    },
+    "nodejs@18.19.0": {
+      "last_modified": "2023-12-13T22:54:10Z",
+      "resolved": "github:NixOS/nixpkgs/fd04bea4cbf76f86f244b9e2549fca066db8ddff#nodejs_18",
+      "source": "devbox-search",
+      "version": "18.19.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/6x8nm7kgdj2v79mwkjrqaj12rwwdzn50-nodejs-18.19.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/cf00lk380qym52d951yvjfm41f1v7a1j-nodejs-18.19.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/0ckf6nnx5hxn365x45sd70va0v7yv0f8-nodejs-18.19.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/if3abix5p1mnlqabshwyj4hk3fyf7cwq-nodejs-18.19.0"
+        }
+      }
+    }
+  }
+}
