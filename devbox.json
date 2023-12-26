@@ -1,6 +1,9 @@
 {
   "packages": ["nodejs@18.18.2", "corepack@18.18.2", "docker@latest"],
   "shell": {
-    "init_hook": ["echo 'Welcome to devbox!' > /dev/null"]
+    "init_hook": [
+       "echo 'Welcome to devbox!' > /dev/null",
+       "corepack prepare pnpm@8.13.0 --activate"
+    ]
   }
 }
