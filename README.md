@@ -11,14 +11,9 @@ Based on https://www.npmjs.com/package/@toincrease/node-mountebank, but
 
 ### Pre-Requisite
 
-Using devbox.sh from jetpack.io to setup local dev environment tooling
-# [Devbox.sh](https://www.jetpack.io/devbox/docs/)
-1. [Motivation](https://alan.norbauer.com/articles/devbox-intro)
-2. [Install devbox.sh](https://www.jetpack.io/devbox/docs/installing_devbox/)
-3. Start devbox.sh using `devbox shell`
+# Optional - [Devbox.sh](https://www.jetpack.io/devbox/docs/)
 
-Using devbox.sh from jetpack.io to setup local dev environment tooling
-# [Devbox.sh](https://www.jetpack.io/devbox/docs/)
+You can use devbox.sh from jetpack.io to setup the local dev environment tooling.
 1. [Motivation](https://alan.norbauer.com/articles/devbox-intro)
 2. [Install devbox.sh](https://www.jetpack.io/devbox/docs/installing_devbox/)
 3. Start devbox.sh using `devbox shell`
