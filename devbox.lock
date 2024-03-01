@@ -1,23 +1,23 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "corepack_18@18.19.0": {
-      "last_modified": "2024-02-10T18:15:24Z",
-      "resolved": "github:NixOS/nixpkgs/10b813040df67c4039086db0f6eaf65c536886c6#corepack_18",
+    "corepack_18@18.19.1": {
+      "last_modified": "2024-02-26T19:46:43Z",
+      "resolved": "github:NixOS/nixpkgs/548a86b335d7ecd8b57ec617781f5e652ab0c38e#corepack_18",
       "source": "devbox-search",
-      "version": "18.19.0",
+      "version": "18.19.1",
       "systems": {
         "aarch64-darwin": {
-          "store_path": "/nix/store/ms4xxzx3q9l55jzc0bv3iv5nb2gr82yj-corepack-nodejs-18.19.0"
+          "store_path": "/nix/store/chym073v5xgndf3blsp3r1368v85h4j4-corepack-nodejs-18.19.1"
         },
         "aarch64-linux": {
-          "store_path": "/nix/store/c689kvx0ga4xdwwmbmag6w5q4pr68vv7-corepack-nodejs-18.19.0"
+          "store_path": "/nix/store/9d4g0s21xfx470whd0kc8r8cp2ly0g70-corepack-nodejs-18.19.1"
         },
         "x86_64-darwin": {
-          "store_path": "/nix/store/d7myyznbyfn0a62pdrkh9649ixrsnzfd-corepack-nodejs-18.19.0"
+          "store_path": "/nix/store/c744s23f0f67h82rxh6cpr8nz0cakzlc-corepack-nodejs-18.19.1"
         },
         "x86_64-linux": {
-          "store_path": "/nix/store/15gi74m7iahf620n2qw2a4x3hb4ahj9b-corepack-nodejs-18.19.0"
+          "store_path": "/nix/store/d29gg8ivq1bvwjbl1pm2lggmkcgynckq-corepack-nodejs-18.19.1"
         }
       }
     },
@@ -41,23 +41,23 @@
         }
       }
     },
-    "nodejs@18.19.0": {
-      "last_modified": "2024-02-10T18:15:24Z",
-      "resolved": "github:NixOS/nixpkgs/10b813040df67c4039086db0f6eaf65c536886c6#nodejs_18",
+    "nodejs@18.19.1": {
+      "last_modified": "2024-02-26T19:46:43Z",
+      "resolved": "github:NixOS/nixpkgs/548a86b335d7ecd8b57ec617781f5e652ab0c38e#nodejs_18",
       "source": "devbox-search",
-      "version": "18.19.0",
+      "version": "18.19.1",
       "systems": {
         "aarch64-darwin": {
-          "store_path": "/nix/store/10g4w66jc811y4qfl52w6an8w7yc264z-nodejs-18.19.0"
+          "store_path": "/nix/store/fxly5x870ssyw5rbvdi58jbhc4j03mzk-nodejs-18.19.1"
         },
         "aarch64-linux": {
-          "store_path": "/nix/store/cxd7bqzgflywrbdwk87w18g2iyvw4pgb-nodejs-18.19.0"
+          "store_path": "/nix/store/6iirvvbd99b7dfwk3z8phry2yliwvm99-nodejs-18.19.1"
         },
         "x86_64-darwin": {
-          "store_path": "/nix/store/wh0igh0r3c1f1jmxzv8xrcbf0yyrwfd0-nodejs-18.19.0"
+          "store_path": "/nix/store/rzsav2ndbzah0vkmyqpnhcwxp4n0zdm6-nodejs-18.19.1"
         },
         "x86_64-linux": {
-          "store_path": "/nix/store/n06fynnjwvca37xmcj73n22hw7svp55c-nodejs-18.19.0"
+          "store_path": "/nix/store/c8phnfr1s43123qm3fmyiq5n1hs5csdv-nodejs-18.19.1"
         }
       }
     }

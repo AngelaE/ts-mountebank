@@ -1,13 +1,13 @@
 {
   "packages": [
     "docker@latest",
-    "nodejs@18.19.0",
-    "corepack_18@18.19.0"
+    "nodejs@18.19.1",
+    "corepack_18@18.19.1"
   ],
   "shell": {
     "init_hook": [
       "echo 'Welcome to devbox!' > /dev/null",
-      "corepack prepare pnpm@8.14.1 --activate",
+      "corepack prepare pnpm@8.15.4 --activate",
       "pnpm --frozen-lockfile --strict-peer-dependencies recursive install"
     ]
   }
