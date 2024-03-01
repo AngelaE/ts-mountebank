@@ -1,0 +1,5 @@
+if pnpm -C integration-tests list | grep -q -e "@anev/ts-mountebank "; then
+  >&2 echo "Error: @anev/ts-mountebank is installed in the integration-tests." 
+  >&2 echo "Please remove by running the following command before committing: pnpm project:remove"
+  exit 1
+fi
