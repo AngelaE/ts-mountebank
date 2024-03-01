@@ -1,10 +1,10 @@
 {
   "name": "@anev/ts-mountebank",
-  "version": "1.8.3",
+  "version": "1.8.2",
   "description": "Mountebank client for TS / node ",
   "engines": {
     "node": ">=16.20.2",
-    "pnpm": ">=8.14.1"
+    "pnpm": ">=8.15.4"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
