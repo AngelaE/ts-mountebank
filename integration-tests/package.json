@@ -9,9 +9,8 @@
   "scripts": {
     "start:mb": "mb",
     "test": "mocha --recursive ./dist",
-    "test-local": "pnpm mocha:test-ci",
-    "test-ci": "run-p -clnr start:mb mocha:test-ci",
-    "mocha:test-ci": "wait-on tcp:2525 && mocha --recursive --forbid-only ./dist",
+    "test:ci": "run-p -clnr start:mb test:ci:wait-and-test",
+    "test:ci:wait-and-test": "wait-on tcp:2525 && mocha --recursive --forbid-only ./dist",
     "build": "tsc",
     "pretty": "prettier -w ./**/*",
     "lint": "eslint . --ext .ts",
@@ -19,7 +18,9 @@
     "mb:up": "docker run -d --name mb -p 2525:2525 -p 12345:12345 -p 12346:12346 bbyars/mountebank:2.9.1 mb start",
     "mb:up-on-port-2524": "docker run -d --name mb -p 2524:2525 -p 12345:12345 -p 12346:12346 bbyars/mountebank:2.9.1 mb start",
     "test-different-mb-url": "MB_PORT=2524 pnpm test-ci -- -g ^Mountebank",
-    "mb:down": "docker kill mb && docker rm mb"
+    "mb:down": "docker kill mb && docker rm mb",
+    "project:add": "pnpm add -D 'file://../project/anev-ts-mountebank-1.8.2.tgz'",
+    "project:remove": "pnpm remove @anev/ts-mountebank"
   },
   "repository": {
     "type": "git",

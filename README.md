@@ -10,15 +10,7 @@ Based on https://www.npmjs.com/package/@toincrease/node-mountebank, but
 ## Usage
 
 ### Pre-Requisite
-
-# Optional - [Devbox.sh](https://www.jetpack.io/devbox/docs/)
-
-You can use devbox.sh from jetpack.io to setup the local dev environment tooling.
-1. [Motivation](https://alan.norbauer.com/articles/devbox-intro)
-2. [Install devbox.sh](https://www.jetpack.io/devbox/docs/installing_devbox/)
-3. Start devbox.sh using `devbox shell`
-
-Install Mountebank:
+Install Mountebank locally or run in docker. The easiest local install is as follows, otherwise check out options in the [integration-tests](./integration-tests/README.md).
 
 ```
 npm install -g mountebank --production
@@ -70,3 +62,14 @@ let proxyImposter = new Imposter()
 
 await mb.createImposter(proxyImposter);
  ```
+ 
+## Contributing
+
+# Optional Pre-Requisite [Devbox.sh](https://www.jetpack.io/devbox/docs/)
+
+You can use devbox.sh from jetpack.io to setup the local dev environment tooling.
+1. [Motivation](https://alan.norbauer.com/articles/devbox-intro)
+2. [Install devbox.sh](https://www.jetpack.io/devbox/docs/installing_devbox/)
+3. Start devbox.sh using `devbox shell`
+
+Check the [integration-tests](./integration-tests/README.md) for notes on how to run and test the package locally.
