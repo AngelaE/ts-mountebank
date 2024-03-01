@@ -1,10 +1,15 @@
 {
   "name": "@anev/ts-mountebank",
-  "version": "1.8.0",
+  "version": "1.8.2",
   "description": "Mountebank client for TS / node ",
+  "engines": {
+    "node": ">=16.20.2",
+    "pnpm": ">=8.14.1"
+  },
   "scripts": {
-    "release": "npm run build && npm run test && npm publish --access=public",
-    "pack": "npm run build && npm run test && npm pack",
+    "preinstall": "npx only-allow pnpm",
+    "release": "pnpm build && pnpm test && pnpm publish --access=public",
+    "package": "pnpm build && pnpm test && pnpm pack",
     "test": "mocha --recursive ./lib",
     "test-ci": "mocha --recursive --forbid-only ./lib",
     "build": "tsc",
@@ -20,18 +25,18 @@
   "license": "ISC",
   "dependencies": {
     "superagent": "^8.1.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@types/chai": "^4.3",
-    "@types/mocha": "^10.0",
-    "@types/superagent": "^4.1",
-    "@typescript-eslint/eslint-plugin": "^6.7",
-    "@typescript-eslint/parser": "^6.7",
-    "chai": "^4.3.9",
-    "eslint": "^8.50",
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/superagent": "^8.1.1",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "chai": "^4.4.1",
+    "eslint": "^8.56.0",
     "mocha": "^10.2.0",
-    "prettier": "^3.0",
+    "prettier": "^3.2.1",
     "stream": "0.0.2",
     "typescript-formatter": "^7.2.2"
   },
