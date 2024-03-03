@@ -1,8 +1,8 @@
 {
   "packages": [
     "docker@latest",
-    "nodejs@18.19.1",
-    "corepack_18@18.19.1"
+    "nodejs@20.11.1",
+    "corepack_20@20.11.1"
   ],
   "shell": {
     "init_hook": [

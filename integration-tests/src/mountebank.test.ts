@@ -64,7 +64,11 @@ describe('Mountebank', () => {
     try {
       await getImposterResponseCode();
     } catch (error) {
-      expect(error).to.match(/(?:ECONNREFUSED|ECONNRESET)/);
+      if(process.version.includes('v20')) {
+        expect((error as AggregateError).errors).to.match(/(?:ECONNREFUSED|ECONNRESET)/);
+      } else {
+        expect(error).to.match(/(?:ECONNREFUSED|ECONNRESET)/);
+      }
       return;
     }
     assert.fail('the request should have failed');
