@@ -1,6 +1,6 @@
 {
   "name": "@anev/ts-mountebank",
-  "version": "1.8.3",
+  "version": "1.8.2",
   "description": "Mountebank client for TS / node ",
   "engines": {
     "node": ">=20.11",
