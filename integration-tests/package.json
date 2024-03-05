@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Integration tests for @anev/ts-mountebank ",
   "engines": {
-    "node": ">=16.20.2",
+    "node": ">=20.11",
     "pnpm": ">=8.15.4"
   },
   "scripts": {
