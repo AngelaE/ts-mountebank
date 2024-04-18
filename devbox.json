@@ -7,7 +7,7 @@
   "shell": {
     "init_hook": [
       "echo 'Welcome to devbox!' > /dev/null",
-      "corepack prepare pnpm@8.15.4 --activate",
+      "corepack prepare pnpm@9.0.2 --activate",
       "pnpm --frozen-lockfile --strict-peer-dependencies recursive install"
     ]
   }
