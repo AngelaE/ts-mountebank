@@ -4,7 +4,7 @@
   "description": "Mountebank client for TS / node ",
   "engines": {
     "node": ">=16.20.2",
-    "pnpm": ">=8.15.4"
+    "pnpm": ">=8.15.7"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -25,17 +25,17 @@
   "license": "ISC",
   "dependencies": {
     "superagent": "^8.1.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.12",
+    "@types/chai": "^4.3.14",
     "@types/mocha": "^10.0.6",
-    "@types/superagent": "^8.1.4",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
+    "@types/superagent": "^8.1.6",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
     "chai": "^4.4.1",
     "eslint": "^8.57.0",
-    "mocha": "^10.3.0",
+    "mocha": "^10.4.0",
     "prettier": "^3.2.5",
     "stream": "0.0.2",
     "typescript-formatter": "^7.2.2"
