@@ -3,7 +3,7 @@
   "version": "1.8.2",
   "description": "Mountebank client for TS / node ",
   "engines": {
-    "node": ">=16.20.2",
+    "node": ">=20.11",
     "pnpm": ">=8.15.7"
   },
   "scripts": {
