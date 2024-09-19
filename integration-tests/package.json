@@ -4,7 +4,7 @@
   "description": "Integration tests for @anev/ts-mountebank ",
   "engines": {
     "node": ">=18.20",
-    "pnpm": ">=9.9"
+    "pnpm": ">=9.10"
   },
   "scripts": {
     "start:mb": "mb",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.19",
-    "@types/mocha": "^10.0.7",
+    "@types/mocha": "^10.0.8",
     "@types/superagent": "^8.1.9",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -42,11 +42,11 @@
     "eslint": "^8.57.0",
     "mocha": "^10.7.3",
     "mountebank": "^2.9.1",
-    "npm-run-all2": "^6.2.2",
+    "npm-run-all2": "^6.2.3",
     "prettier": "^3.3.3",
     "stream": "0.0.3",
     "typescript-formatter": "^7.2.2",
-    "wait-on": "^8.0.0"
+    "wait-on": "^8.0.1"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts"
