@@ -4,7 +4,7 @@
   "description": "Mountebank client for TS / node ",
   "engines": {
     "node": ">=18.20",
-    "pnpm": ">=9.10"
+    "pnpm": ">=9.11"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",

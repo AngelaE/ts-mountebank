@@ -4,7 +4,7 @@
   "description": "Integration tests for @anev/ts-mountebank ",
   "engines": {
     "node": ">=18.20",
-    "pnpm": ">=9.10"
+    "pnpm": ">=9.11"
   },
   "scripts": {
     "start:mb": "mb",

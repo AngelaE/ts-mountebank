@@ -20,6 +20,6 @@ echo "##   DOCKER_HOST: $DOCKER_HOST                        "
 echo "                                                                                  "
 echo "###################################################################################################################"
 
-corepack prepare pnpm@9.10.0 --activate
-corepack use pnpm@9.10.0
+corepack prepare pnpm@9.11.0 --activate
+corepack use pnpm@9.11.0
 pnpm --frozen-lockfile --strict-peer-dependencies recursive install
