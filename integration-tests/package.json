@@ -4,7 +4,7 @@
   "description": "Integration tests for @anev/ts-mountebank ",
   "engines": {
     "node": ">=18.20",
-    "pnpm": ">=9.0"
+    "pnpm": ">=9.11"
   },
   "scripts": {
     "start:mb": "mb",
@@ -29,24 +29,24 @@
   "author": "Angela Evans",
   "license": "ISC",
   "dependencies": {
-    "superagent": "^8.1.2",
-    "typescript": "^5.4.5"
+    "superagent": "^10.1.0",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.14",
-    "@types/mocha": "^10.0.6",
-    "@types/superagent": "^8.1.6",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "chai": "^4.4.1",
+    "@types/chai": "^4.3.19",
+    "@types/mocha": "^10.0.8",
+    "@types/superagent": "^8.1.9",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "chai": "^4.5.0",
     "eslint": "^8.57.0",
-    "mocha": "^10.4.0",
+    "mocha": "^10.7.3",
     "mountebank": "^2.9.1",
-    "npm-run-all2": "^6.1.2",
-    "prettier": "^3.2.5",
-    "stream": "0.0.2",
+    "npm-run-all2": "^6.2.3",
+    "prettier": "^3.3.3",
+    "stream": "0.0.3",
     "typescript-formatter": "^7.2.2",
-    "wait-on": "^7.2.0"
+    "wait-on": "^8.0.1"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts"
