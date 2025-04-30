@@ -1,14 +1,13 @@
 {
   "packages": [
     "docker@latest",
-    "nodejs@20.12.2",
-    "corepack_20@20.12.2"
+    "nodejs_20@latest",
+    "corepack_20@latest"
   ],
   "shell": {
     "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null",
-      "corepack prepare pnpm@9.0.6 --activate",
-      "pnpm --frozen-lockfile --strict-peer-dependencies recursive install"
+      "echo 'Welcome to devbox for ts-mountebank!' > /dev/null",
+      ". ./set-env.sh"
     ]
   }
 }
